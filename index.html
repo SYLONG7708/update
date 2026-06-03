@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#071018">
+  <meta name="description" content="申悅 APK 更新中心，提供安卓車機 APK 雲端清單、圖標詳情頁與下載更新。">
+  <title>申悅 APK 更新中心</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/app-logo.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="申悅 APK 更新中心">
+      <img src="assets/app-logo.png" alt="">
+      <span>
+        <strong>申悅 APK 更新中心</strong>
+        <small>Cloud APK Update Center</small>
+      </span>
+    </a>
+    <div class="top-actions">
+      <button type="button" data-refresh-updates>重新整理</button>
+      <button type="button" data-open-install-permission>安裝權限</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero-panel">
+      <img src="assets/update-splash.png" alt="申悅 APK 更新中心">
+      <div>
+        <p>Independent APK Center</p>
+        <h1>申悅 APK 更新中心</h1>
+        <span>讀取 GitHub 雲端清單，管理車機 APK 下載與版本更新。</span>
+      </div>
+    </section>
+
+    <section class="cloud-panel">
+      <label>雲端更新清單 JSON
+        <input type="url" data-update-url value="https://raw.githubusercontent.com/SYLONG7708/update/main/updates.json">
+      </label>
+      <div class="status-line" data-update-status>尚未讀取更新清單。</div>
+      <div class="status-line" data-update-device></div>
+    </section>
+
+    <section class="catalog-section">
+      <div class="section-head">
+        <p>APK Catalog</p>
+        <h2>雲端 APK 圖標</h2>
+      </div>
+      <div class="update-grid" data-update-list></div>
+    </section>
+
+    <section class="detail-section" data-update-detail hidden></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
