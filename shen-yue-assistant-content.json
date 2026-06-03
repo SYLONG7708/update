@@ -1,0 +1,41 @@
+{
+  "heroTitle": "車機教學、保固資料、售後聯絡。",
+  "services": [
+    {
+      "number": "01",
+      "title": "車載安卓機",
+      "description": "13 吋高解析大螢幕升級，整合導航、影音、CarPlay、倒車顯影與原車控制，讓車艙變成直覺好用的智慧中控。",
+      "iconClass": "custom-icon android-icon"
+    },
+    {
+      "number": "02",
+      "title": "360 環景系統",
+      "description": "四鏡頭全景輔助搭配專業校正，停車、窄巷、會車更有掌握，降低視線死角與碰撞風險。",
+      "iconClass": "custom-icon surround-icon"
+    },
+    {
+      "number": "03",
+      "title": "行車記錄器",
+      "description": "前後雙錄與車機整合，清楚保存行車關鍵畫面，安裝走線俐落，日常通勤與長途行車都更安心。",
+      "iconClass": "custom-icon dashcam-icon"
+    },
+    {
+      "number": "04",
+      "title": "汽車音響",
+      "description": "喇叭、DSP、擴大機與隔音制震整體規劃，依車艙空間調整音場，讓音樂細節、層次與低頻更有質感。",
+      "iconClass": "custom-icon audio-icon"
+    },
+    {
+      "number": "05",
+      "title": "電動尾門",
+      "description": "支援按鍵、遙控與高度記憶設定，開關更便利，施工依車款整合原車訊號，兼顧安全與使用質感。",
+      "iconClass": "custom-icon tailgate-icon"
+    },
+    {
+      "number": "06",
+      "title": "盲點偵測",
+      "description": "後視鏡警示與雷達偵測輔助變換車道，提醒側後方來車，提升高速、公路與市區行駛安全。",
+      "iconClass": "custom-icon blind-icon"
+    }
+  ]
+}

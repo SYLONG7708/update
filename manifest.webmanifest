@@ -1,15 +1,18 @@
 {
-  "name": "申悅 APK 更新中心",
-  "short_name": "申悅更新",
+  "name": "申悅助手",
+  "short_name": "申悅助手",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#071018",
   "theme_color": "#071018",
+  "lang": "zh-Hant",
   "icons": [
     {
       "src": "assets/app-logo.png",
       "sizes": "1024x1024",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

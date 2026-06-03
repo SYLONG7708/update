@@ -1,38 +1,8 @@
 {
     "schema":  1,
     "channel":  "stable",
-    "updatedAt":  "2026-06-04T02:08:05+08:00",
+    "updatedAt":  "2026-06-04T03:56:00+08:00",
     "apps":  [
-                 {
-                     "id":  "shen-yue-apk-update-center",
-                     "name":  "申悅 APK 更新中心",
-                     "packageName":  "tw.com.shenyue.updatecenter",
-                     "versionCode":  4,
-                     "versionName":  "1.0.3-home",
-                     "minAndroid":  "Android 6.0+",
-                     "sizeLabel":  "13.0 MB",
-                     "apkUrl":  "https://github.com/SYLONG7708/update/releases/download/apk-cloud/shen-yue-apk-update-center-v1.0.3.apk",
-                     "sha256":  "8256f334fa7bd273c1a6626e114adb640cbae49c2d195ee3430c546aff046c84",
-                     "imageUrl":  "assets/update-splash.png",
-                     "iconUrl":  "assets/app-logo.png",
-                     "galleryImages":  [
-                                           "assets/update-gallery/shen-yue-apk-update-center-photo-1.png",
-                                           "assets/update-gallery/shen-yue-apk-update-center-photo-2.png"
-                                       ],
-                     "description":  "申悅 APK 更新中心獨立版 v1.0.3，首頁新增更新中心與申悅車機助手入口，詳情頁改顯示 App 小圖標、隱藏技術下載資訊，並提供兩個可替換圖片位置。",
-                     "sourceFile":  "releases/shen-yue-apk-update-center-v1.0.3.apk",
-                     "changelog":  [
-                                       "全新獨立 App，不屬於申悅助手分頁",
-                                       "每個 APK 顯示可點擊圖標",
-                                       "點圖標進入單獨詳情頁",
-                                       "詳情頁文字可長按反白複製",
-                                       "讀取 C:\\\\Users\\\\Administrator\\\\Downloads\\\\更新 匯入的 APK",
-                                       "修正雲端 404 或部分車機 WebView 本機讀取失敗時看不到清單",
-                                       "APK 下載網址改為 GitHub Releases asset，支援超過 100 MiB 的大檔",
-                                       "首頁新增更新中心點擊入口與申悅車機助手入口",
-                                       "每個 App 詳情頁新增兩個圖片位置"
-                                   ]
-                 },
                  {
                      "id":  "com-disney-disneyplus-1765287900",
                      "name":  "Disney+",
@@ -51,13 +21,10 @@
                                            "assets/update-gallery/com-disney-disneyplus-1765287900-photo-2.png"
                                        ],
                      "description":  "Disney+ 影音串流 APK，提供電影、影集與兒童內容觀看，適合車機在停車休息或後座娛樂時使用。",
-                     "sourceFile":  "Disney+.apk",
-                     "downloadFileName":  "com-disney-disneyplus-1765287900.apk",
-                     "cloudRepository":  "https://github.com/SYLONG7708/update",
                      "changelog":  [
-                                       "來源檔案：Disney+.apk",
-                                       "已加入申悅更新中心下載清單",
-                                       "可長按反白複製本介紹與版本資訊"
+                                       "已加入申悅車機更新中心",
+                                       "可在車機內下載安裝",
+                                       "介紹與版本資訊可長按複製"
                                    ]
                  },
                  {
@@ -78,13 +45,10 @@
                                            "assets/update-gallery/com-google-android-inputmethod-latin-80959513-photo-2.png"
                                        ],
                      "description":  "Gboard Google 鍵盤 APK，提供中文注音、英文、語音輸入與多語系鍵盤，適合車機搜尋導航、YouTube 或輸入帳號文字。",
-                     "sourceFile":  "GOOGLE 注音輸入法.apk",
-                     "downloadFileName":  "com-google-android-inputmethod-latin-80959513.apk",
-                     "cloudRepository":  "https://github.com/SYLONG7708/update",
                      "changelog":  [
-                                       "來源檔案：GOOGLE 注音輸入法.apk",
-                                       "已加入申悅更新中心下載清單",
-                                       "可長按反白複製本介紹與版本資訊"
+                                       "已加入申悅車機更新中心",
+                                       "可在車機內下載安裝",
+                                       "介紹與版本資訊可長按複製"
                                    ]
                  },
                  {
@@ -105,13 +69,10 @@
                                            "assets/update-gallery/com-netflix-mediaclient-64073-photo-2.png"
                                        ],
                      "description":  "Netflix 影音串流 APK，提供影集、電影與紀錄片觀看，適合車機影音測試與乘客娛樂使用。",
-                     "sourceFile":  "Netflix.apk",
-                     "downloadFileName":  "com-netflix-mediaclient-64073.apk",
-                     "cloudRepository":  "https://github.com/SYLONG7708/update",
                      "changelog":  [
-                                       "來源檔案：Netflix.apk",
-                                       "已加入申悅更新中心下載清單",
-                                       "可長按反白複製本介紹與版本資訊"
+                                       "已加入申悅車機更新中心",
+                                       "可在車機內下載安裝",
+                                       "介紹與版本資訊可長按複製"
                                    ]
                  },
                  {
@@ -132,40 +93,10 @@
                                            "assets/update-gallery/com-kingwaytek-1717-photo-2.png"
                                        ],
                      "description":  "樂客導航王 A5i APK，提供台灣導航、路線規劃與車機導航測試使用。",
-                     "sourceFile":  "卡1.apk",
-                     "downloadFileName":  "com-kingwaytek-1717.apk",
-                     "cloudRepository":  "https://github.com/SYLONG7708/update",
                      "changelog":  [
-                                       "來源檔案：卡1.apk",
-                                       "已加入申悅更新中心下載清單",
-                                       "可長按反白複製本介紹與版本資訊"
-                                   ]
-                 },
-                 {
-                     "id":  "tw-com-shenyue-assistant-100",
-                     "name":  "申悅車機助手",
-                     "packageName":  "tw.com.shenyue.assistant",
-                     "versionCode":  100,
-                     "versionName":  "1.0.0-online",
-                     "minAndroid":  "依 APK 設定",
-                     "targetSdk":  "28",
-                     "sizeLabel":  "1.6 MB",
-                     "apkUrl":  "https://github.com/SYLONG7708/shen-yue-iphone-assistant/releases/download/assistant-apk/shen-yue-assistant.apk",
-                     "sha256":  "da26805b5938103cbe87216071e73b90f19161c81b45b8b62540ba4144e60b05",
-                     "imageUrl":  "assets/update-apps/tw-com-shenyue-assistant-100.png",
-                     "iconUrl":  "assets/update-icons/tw-com-shenyue-assistant-100-icon.png",
-                     "galleryImages":  [
-                                           "assets/update-gallery/tw-com-shenyue-assistant-100-photo-1.png",
-                                           "assets/update-gallery/tw-com-shenyue-assistant-100-photo-2.png"
-                                       ],
-                     "description":  "申悅車機助手 Online APK，可作為申悅雲端助手版本參考，提供車機教學、聯絡與服務入口。",
-                     "sourceFile":  "助手.apk",
-                     "downloadFileName":  "shen-yue-assistant.apk",
-                     "cloudRepository":  "https://github.com/SYLONG7708/shen-yue-iphone-assistant",
-                     "changelog":  [
-                                       "來源檔案：助手.apk",
-                                       "已加入申悅更新中心下載清單",
-                                       "可長按反白複製本介紹與版本資訊"
+                                       "已加入申悅車機更新中心",
+                                       "可在車機內下載安裝",
+                                       "介紹與版本資訊可長按複製"
                                    ]
                  },
                  {
@@ -186,13 +117,10 @@
                                            "assets/update-gallery/com-google-android-apps-inputmethod-zhuyin-2451412-photo-2.png"
                                        ],
                      "description":  "Google 注音輸入法 APK，提供傳統注音鍵盤，適合較舊 Android 車機或指定注音輸入需求。",
-                     "sourceFile":  "注音輸入法.apk",
-                     "downloadFileName":  "com-google-android-apps-inputmethod-zhuyin-2451412.apk",
-                     "cloudRepository":  "https://github.com/SYLONG7708/update",
                      "changelog":  [
-                                       "來源檔案：注音輸入法.apk",
-                                       "已加入申悅更新中心下載清單",
-                                       "可長按反白複製本介紹與版本資訊"
+                                       "已加入申悅車機更新中心",
+                                       "可在車機內下載安裝",
+                                       "介紹與版本資訊可長按複製"
                                    ]
                  },
                  {
@@ -213,13 +141,10 @@
                                            "assets/update-gallery/tw-com-ainvest-outpack-228-photo-2.png"
                                        ],
                      "description":  "神盾測速照相 APK，提供測速照相與道路提醒用途，適合車機導航與道路安全功能測試。",
-                     "sourceFile":  "神盾測速照.apk",
-                     "downloadFileName":  "tw-com-ainvest-outpack-228.apk",
-                     "cloudRepository":  "https://github.com/SYLONG7708/update",
                      "changelog":  [
-                                       "來源檔案：神盾測速照.apk",
-                                       "已加入申悅更新中心下載清單",
-                                       "可長按反白複製本介紹與版本資訊"
+                                       "已加入申悅車機更新中心",
+                                       "可在車機內下載安裝",
+                                       "介紹與版本資訊可長按複製"
                                    ]
                  },
                  {
@@ -240,13 +165,10 @@
                                            "assets/update-gallery/app-revanced-android-gms-250932004-photo-2.png"
                                        ],
                      "description":  "microG Services APK，提供部分修改版影音 App 所需的 Google 登入與背景服務相容支援。",
-                     "sourceFile":  "無廣告1.apk",
-                     "downloadFileName":  "app-revanced-android-gms-250932004.apk",
-                     "cloudRepository":  "https://github.com/SYLONG7708/update",
                      "changelog":  [
-                                       "來源檔案：無廣告1.apk",
-                                       "已加入申悅更新中心下載清單",
-                                       "可長按反白複製本介紹與版本資訊"
+                                       "已加入申悅車機更新中心",
+                                       "可在車機內下載安裝",
+                                       "介紹與版本資訊可長按複製"
                                    ]
                  },
                  {
@@ -267,13 +189,10 @@
                                            "assets/update-gallery/app-morphe-android-youtube-1558230464-photo-2.png"
                                        ],
                      "description":  "YouTube Morphe APK，提供 YouTube 影音播放用途，請依你的測試需求確認版本與車機相容性。",
-                     "sourceFile":  "無廣告2.apk",
-                     "downloadFileName":  "app-morphe-android-youtube-1558230464.apk",
-                     "cloudRepository":  "https://github.com/SYLONG7708/update",
                      "changelog":  [
-                                       "來源檔案：無廣告2.apk",
-                                       "已加入申悅更新中心下載清單",
-                                       "可長按反白複製本介紹與版本資訊"
+                                       "已加入申悅車機更新中心",
+                                       "可在車機內下載安裝",
+                                       "介紹與版本資訊可長按複製"
                                    ]
                  }
              ]
