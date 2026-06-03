@@ -25,11 +25,23 @@ https://raw.githubusercontent.com/SYLONG7708/update/main/updates.json
 https://raw.githubusercontent.com/SYLONG7708/update/main/updates.json
 ```
 
-v1.0.2 已加入 App 內建清單備援；GitHub 尚未上傳或 raw 網址 404 時，畫面仍會顯示內建清單。若要讓「下載安裝」成功，`apkUrl` 指向的 APK 必須真的能被車機下載。
+v1.0.3 已加入 App 內建清單備援；GitHub 尚未上傳或 raw 網址 404 時，畫面仍會顯示內建清單。若要讓「下載安裝」成功，`apkUrl` 指向的 APK 必須真的能被車機下載。
 
 ## 修改雲端內容
 
 只要修改 `updates.json` 的 `name`、`description`、`iconUrl`、`imageUrl`、`apkUrl`、`sha256` 後重新上傳，車機端按「重新整理」即可看到，不需要重新安裝獨立更新中心 App。
+
+## 替換詳情頁兩張圖片
+
+每個 App 的兩張圖片在 `assets/update-gallery/`。打開 `updates.json` 找到該 App 的 `galleryImages`，用自己的 PNG/JPG 覆蓋同名檔案後重新上傳即可。
+
+## 申悅車機助手專用雲端
+
+`助手.apk` 已設定為：
+
+```text
+https://github.com/SYLONG7708/shen-yue-iphone-assistant/releases/download/assistant-apk/shen-yue-assistant.apk
+```
 
 ## 大檔 APK
 

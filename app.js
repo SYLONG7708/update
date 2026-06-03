@@ -35,6 +35,10 @@ function getPreferredManifestUrl() {
   return localStorage.getItem(updateUrlKey) || defaultUpdateManifestUrl;
 }
 
+function getAssistantIndex() {
+  return currentUpdateItems.findIndex((item) => item.packageName === "tw.com.shenyue.assistant" || item.sourceFile === "助手.apk");
+}
+
 function getErrorMessage(error) {
   return error?.message || String(error || "未知錯誤");
 }
@@ -202,10 +206,20 @@ function renderDetail(index) {
   const installedText = installed?.installed ? `${escapeHtml(installed.versionName || "")} (${currentCode})` : "尚未安裝";
   const remoteText = `${escapeHtml(item.versionName || "")} (${remoteCode || "未填"})`;
   const changelog = Array.isArray(item.changelog) ? item.changelog.join("、") : (item.changelog || item.note || "");
-  const apkUrl = resolveManifestRelativeUrl(item.apkUrl);
-  const imageUrl = resolveManifestRelativeUrl(item.imageUrl, "assets/update-splash.png");
+  const iconUrl = resolveManifestRelativeUrl(item.iconUrl || item.imageUrl, "assets/app-logo.png");
   const description = item.description || item.introduction || changelog || item.note || "此 APK 尚未填寫介紹。";
   const targetSdkText = item.targetSdk ? `SDK ${escapeHtml(item.targetSdk)}` : "未標示";
+  const galleryImages = Array.isArray(item.galleryImages) ? item.galleryImages.slice(0, 2) : [];
+  while (galleryImages.length < 2) galleryImages.push("");
+  const galleryHtml = galleryImages.map((url, slot) => {
+    const imageUrl = resolveManifestRelativeUrl(url, "assets/update-splash.png");
+    return `
+      <figure class="gallery-slot">
+        <img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(item.name || "APK")} 圖片位置 ${slot + 1}" loading="lazy" onerror="this.onerror=null;this.src='assets/update-splash.png';">
+        <figcaption>圖片位置 ${slot + 1}</figcaption>
+      </figure>
+    `;
+  }).join("");
 
   updateDetail.hidden = false;
   updateDetail.innerHTML = `
@@ -216,21 +230,17 @@ function renderDetail(index) {
     <article class="detail-card" data-update-card="${index}">
       <header>
         <h2>${escapeHtml(item.name || item.id || "未命名 APK")}</h2>
-        <p>${escapeHtml(item.packageName || "")}</p>
       </header>
       <div class="detail-body">
-        <img class="detail-image" src="${escapeHtml(imageUrl)}" alt="${escapeHtml(item.name || "APK")} 圖片" loading="lazy" onerror="this.onerror=null;this.src='assets/update-splash.png';">
+        <div class="detail-icon-panel">
+          <img class="detail-icon" src="${escapeHtml(iconUrl)}" alt="${escapeHtml(item.name || "APK")} 圖標" loading="lazy" onerror="this.onerror=null;this.src='assets/app-logo.png';">
+          <span>${escapeHtml(item.name || "APK")}</span>
+        </div>
         <div class="copyable-text">
           <p class="description">${escapeHtml(description)}</p>
-          <div class="info-list">
-            <div><strong>來源檔案</strong><span>${escapeHtml(item.sourceFile || "未標示")}</span></div>
-            <div><strong>下載檔名</strong><span>${escapeHtml(item.downloadFileName || "依網址")}</span></div>
-            <div><strong>包名</strong><span>${escapeHtml(item.packageName || "未標示")}</span></div>
-            <div><strong>下載網址</strong><span>${escapeHtml(apkUrl || "未標示")}</span></div>
-            <div><strong>SHA-256</strong><span>${escapeHtml(item.sha256 || "未填寫")}</span></div>
-          </div>
         </div>
       </div>
+      <div class="gallery-grid">${galleryHtml}</div>
       <div class="meta-grid">
         <span><strong>目前版本</strong><br>${installedText}</span>
         <span><strong>雲端版本</strong><br>${remoteText}</span>
@@ -284,6 +294,20 @@ document.addEventListener("click", (event) => {
   const refresh = event.target.closest("[data-refresh-updates]");
   if (refresh) {
     loadUpdateManifest();
+    return;
+  }
+
+  const updateCenter = event.target.closest("[data-open-update-center]");
+  if (updateCenter) {
+    document.querySelector(".catalog-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+
+  const assistantHome = event.target.closest("[data-open-assistant-home]");
+  if (assistantHome) {
+    const index = getAssistantIndex();
+    if (index >= 0) renderDetail(index);
+    else updateStatus.textContent = "尚未讀到申悅車機助手項目，請先按重新整理。";
     return;
   }
 

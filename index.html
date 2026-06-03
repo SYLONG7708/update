@@ -16,7 +16,6 @@
       <img src="assets/app-logo.png" alt="">
       <span>
         <strong>申悅 APK 更新中心</strong>
-        <small>Cloud APK Update Center</small>
       </span>
     </a>
     <div class="top-actions">
@@ -29,14 +28,24 @@
     <section class="hero-panel">
       <img src="assets/update-splash.png" alt="申悅 APK 更新中心">
       <div>
-        <p>Independent APK Center</p>
         <h1>申悅 APK 更新中心</h1>
-        <span>讀取 GitHub 雲端清單，管理車機 APK 下載與版本更新。</span>
+        <span>首頁整合更新中心與申悅車機助手，車機可直接進入圖標頁下載更新。</span>
       </div>
     </section>
 
+    <section class="home-section" aria-label="首頁入口">
+      <button class="home-card" type="button" data-open-update-center>
+        <strong>更新中心</strong>
+        <span>查看雲端 APK 圖標與版本更新</span>
+      </button>
+      <button class="home-card" type="button" data-open-assistant-home>
+        <strong>申悅車機助手</strong>
+        <span>已接入專用雲端，可直接開啟詳情頁</span>
+      </button>
+    </section>
+
     <section class="cloud-panel">
-      <label>雲端更新清單 JSON
+      <label hidden>雲端更新清單 JSON
         <input type="url" data-update-url value="https://raw.githubusercontent.com/SYLONG7708/update/main/updates.json">
       </label>
       <div class="status-line" data-update-status>尚未讀取更新清單。</div>
@@ -45,8 +54,7 @@
 
     <section class="catalog-section">
       <div class="section-head">
-        <p>APK Catalog</p>
-        <h2>雲端 APK 圖標</h2>
+        <h2>更新中心</h2>
       </div>
       <div class="update-grid" data-update-list></div>
     </section>
