@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>申悅車機助手 APK 更新與圖片位置教學</title>
+  <style>
+    :root {
+      --bg: #071018;
+      --panel: #101d2a;
+      --ink: #f4fbff;
+      --muted: #a8bdcf;
+      --line: rgba(72, 216, 255, .24);
+      --cyan: #48d8ff;
+      --red: #ff3347;
+      --gold: #ffd166;
+      --green: #35e7a4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(140deg, #05080d, var(--bg) 62%, #132033);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      line-height: 1.8;
+    }
+    header, main { max-width: 1120px; margin: 0 auto; padding: 28px 18px; }
+    header { padding-top: 42px; }
+    h1 { margin: 0 0 12px; font-size: clamp(32px, 6vw, 58px); line-height: 1.08; }
+    h2 { margin: 0 0 12px; color: var(--cyan); }
+    h3 { margin: 16px 0 8px; }
+    p { margin: 0 0 12px; color: var(--muted); }
+    section {
+      margin: 16px 0;
+      padding: 20px;
+      background: rgba(16, 29, 42, .88);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    .badge {
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      padding: 6px 10px;
+      color: #fff;
+      background: rgba(72, 216, 255, .16);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-weight: 800;
+    }
+    .ok { border-color: rgba(53, 231, 164, .36); background: rgba(53, 231, 164, .08); }
+    .warn { border-color: rgba(255, 51, 71, .45); background: rgba(255, 51, 71, .1); }
+    ol, ul { margin: 0; padding-left: 22px; }
+    li { margin: 8px 0; }
+    code, pre {
+      color: #dff8ff;
+      background: #07131d;
+      border: 1px solid rgba(72, 216, 255, .22);
+      border-radius: 8px;
+    }
+    code { padding: 2px 6px; }
+    pre { padding: 12px; overflow-x: auto; white-space: pre-wrap; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,.12); text-align: left; vertical-align: top; }
+    th { color: var(--gold); }
+    a { color: var(--cyan); }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="badge">申悅車機助手</span>
+    <span class="badge">APK 更新</span>
+    <span class="badge">圖片位置</span>
+    <h1>APK 更新與圖片位置零基礎教學</h1>
+    <p>這份教學只回答三件事：新版助手 APK 在哪裡、要上傳給車機更新的 APK 放哪裡、每個 App 的兩張介紹圖片放哪裡。</p>
+  </header>
+
+  <main>
+    <section class="ok">
+      <h2>一、最新申悅車機助手 APK 在哪裡</h2>
+      <p>這是要安裝到安卓車機的新版申悅車機助手 APK：</p>
+      <pre>C:\Users\Administrator\Desktop\CODEX 專案資料夾\製作過的 APP 以及資料\申悅車機助手_更新中心_20260603\releases\shen-yue-car-assistant-update-center-v2.0.5.apk</pre>
+      <p>線上下載位置：</p>
+      <pre>https://github.com/SYLONG7708/shen-yue-iphone-assistant/releases/download/assistant-apk/shen-yue-car-assistant-update-center-v2.0.5.apk</pre>
+    </section>
+
+    <section>
+      <h2>二、要上傳更新的 APK 放哪裡</h2>
+      <p>你要讓客戶車機下載的 APK，先放進這個資料夾：</p>
+      <pre>C:\Users\Administrator\Downloads\更新</pre>
+      <ol>
+        <li>把新版 APK 複製到上面資料夾。</li>
+        <li>不要把申悅車機助手本體放進更新清單；系統目前會自動排除 <code>助手.apk</code>。</li>
+        <li>如果要更新同一個 App，新 APK 的版本碼要比舊 APK 高。</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>三、產生雲端上傳檔案</h2>
+      <p>把 APK 放好後，到專案資料夾執行：</p>
+      <pre>cd "C:\Users\Administrator\Desktop\CODEX 專案資料夾\製作過的 APP 以及資料\申悅車機助手_更新中心_20260603"
+powershell -ExecutionPolicy Bypass -File .\tools\import-update-apks.ps1</pre>
+      <p>執行後會自動產生：</p>
+      <ul>
+        <li>APK 雲端檔案：<code>cloud-upload\apks</code></li>
+        <li>每個 App 的兩張圖片：<code>cloud-upload\assets\update-gallery</code></li>
+        <li>更新清單：<code>cloud-upload\updates.json</code></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>四、每個 App 的圖片位置在哪裡</h2>
+      <p>每個 App 有兩張圖片，位置都在：</p>
+      <pre>C:\Users\Administrator\Desktop\CODEX 專案資料夾\製作過的 APP 以及資料\申悅車機助手_更新中心_20260603\cloud-upload\assets\update-gallery</pre>
+      <p>直接用你的圖片覆蓋同名檔案即可。建議圖片尺寸用 16:9，例如 1280x720 或 720x405。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>App 名稱</th>
+            <th>圖片位置 1</th>
+            <th>圖片位置 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Disney+</td><td><code>com-disney-disneyplus-1765287900-photo-1.png</code></td><td><code>com-disney-disneyplus-1765287900-photo-2.png</code></td></tr>
+          <tr><td>Gboard</td><td><code>com-google-android-inputmethod-latin-80959513-photo-1.png</code></td><td><code>com-google-android-inputmethod-latin-80959513-photo-2.png</code></td></tr>
+          <tr><td>Netflix</td><td><code>com-netflix-mediaclient-64073-photo-1.png</code></td><td><code>com-netflix-mediaclient-64073-photo-2.png</code></td></tr>
+          <tr><td>卡1</td><td><code>com-kingwaytek-1717-photo-1.png</code></td><td><code>com-kingwaytek-1717-photo-2.png</code></td></tr>
+          <tr><td>Google Zhuyin Input</td><td><code>com-google-android-apps-inputmethod-zhuyin-2451412-photo-1.png</code></td><td><code>com-google-android-apps-inputmethod-zhuyin-2451412-photo-2.png</code></td></tr>
+          <tr><td>神盾測速照相</td><td><code>tw-com-ainvest-outpack-228-photo-1.png</code></td><td><code>tw-com-ainvest-outpack-228-photo-2.png</code></td></tr>
+          <tr><td>microG Services</td><td><code>app-revanced-android-gms-250932004-photo-1.png</code></td><td><code>app-revanced-android-gms-250932004-photo-2.png</code></td></tr>
+          <tr><td>YouTube Morphe</td><td><code>app-morphe-android-youtube-1558230464-photo-1.png</code></td><td><code>app-morphe-android-youtube-1558230464-photo-2.png</code></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="warn">
+      <h2>五、不要改檔名</h2>
+      <p>替換圖片時，檔名要完全一樣。檔名改掉後，更新中心會找不到圖片。</p>
+      <ol>
+        <li>準備你的新圖片。</li>
+        <li>把新圖片改成表格裡的同名檔案。</li>
+        <li>複製到 <code>cloud-upload\assets\update-gallery</code> 覆蓋。</li>
+        <li>重新上傳 GitHub。</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>六、上傳到 GitHub</h2>
+      <p>APK 與圖片都準備好後，執行：</p>
+      <pre>cd "C:\Users\Administrator\Desktop\CODEX 專案資料夾\製作過的 APP 以及資料\申悅車機助手_更新中心_20260603"
+powershell -ExecutionPolicy Bypass -File .\tools\upload-github-cloud.ps1</pre>
+      <p>它會自動上傳：</p>
+      <ul>
+        <li>更新清單與圖片到：<a href="https://github.com/SYLONG7708/update">SYLONG7708/update</a></li>
+        <li>APK 大檔到：<a href="https://github.com/SYLONG7708/update/releases/tag/apk-cloud">apk-cloud Release</a></li>
+        <li>申悅助手網頁到：<a href="https://github.com/SYLONG7708/shen-yue-iphone-assistant">shen-yue-iphone-assistant</a></li>
+      </ul>
+    </section>
+
+    <section class="ok">
+      <h2>七、上傳後車機怎麼看</h2>
+      <ol>
+        <li>打開申悅車機助手。</li>
+        <li>點上方 <strong>更新</strong>。</li>
+        <li>按 <strong>重新整理</strong>。</li>
+        <li>點 App 項目進入單獨頁面。</li>
+        <li>你替換的兩張圖片會顯示在單獨頁面內。</li>
+      </ol>
+      <p>網頁版位置：</p>
+      <pre>https://sylong7708.github.io/shen-yue-iphone-assistant/</pre>
+    </section>
+  </main>
+</body>
+</html>

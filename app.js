@@ -475,11 +475,9 @@ function getUpdateState(item, installed) {
 
 function renderUpdateIcon(item, installed, index) {
   const state = getUpdateState(item, installed);
-  const imageUrl = resolveManifestRelativeUrl(item.iconUrl || item.imageUrl, "assets/update-splash.png");
 
   return `
     <button class="update-icon-card" type="button" data-update-open="${index}">
-      <img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(item.name || "APK")} 圖標" loading="lazy" onerror="this.onerror=null;this.src='assets/update-splash.png';">
       <span class="status-pill ${state.pillClass}">${state.pill}</span>
       <strong>${escapeHtml(item.name || item.id || "未命名 APK")}</strong>
       <small>${escapeHtml(item.versionName || "版本未標示")}</small>

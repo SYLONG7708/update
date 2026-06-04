@@ -1,7 +1,7 @@
 {
     "schema":  1,
     "channel":  "stable",
-    "updatedAt":  "2026-06-04T03:56:00+08:00",
+    "updatedAt":  "2026-06-04T07:49:35+08:00",
     "apps":  [
                  {
                      "id":  "com-disney-disneyplus-1765287900",
@@ -125,7 +125,7 @@
                  },
                  {
                      "id":  "tw-com-ainvest-outpack-228",
-                     "name":  "神盾測速照相",
+                     "name":  "绁炵浘娓€熺収鐩?\napplication-label-ar:",
                      "packageName":  "tw.com.ainvest.outpack",
                      "versionCode":  228,
                      "versionName":  "3.8.1",
