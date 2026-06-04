@@ -650,6 +650,7 @@ function switchTab(tabId) {
 }
 
 function restoreChecklist() {
+  if (!checklist) return;
   const saved = JSON.parse(localStorage.getItem(checklistKey) || "[]");
   checklist.querySelectorAll("input").forEach((input, index) => {
     input.checked = Boolean(saved[index]);
@@ -767,12 +768,14 @@ document.addEventListener("click", (event) => {
 
 videoSearch.addEventListener("input", renderVideos);
 
-checklist.addEventListener("change", () => {
-  const values = [...checklist.querySelectorAll("input")].map((input) => input.checked);
-  localStorage.setItem(checklistKey, JSON.stringify(values));
-});
+if (checklist) {
+  checklist.addEventListener("change", () => {
+    const values = [...checklist.querySelectorAll("input")].map((input) => input.checked);
+    localStorage.setItem(checklistKey, JSON.stringify(values));
+  });
+}
 
-document.querySelector("[data-reset-checklist]").addEventListener("click", () => {
+document.querySelector("[data-reset-checklist]")?.addEventListener("click", () => {
   localStorage.removeItem(checklistKey);
   restoreChecklist();
 });
@@ -828,7 +831,7 @@ document.querySelector("[data-export-data]").addEventListener("click", () => {
   const data = {
     warranty: getRecord(),
     admin: getAdminSettings(),
-    checklist: JSON.parse(localStorage.getItem(checklistKey) || "[]")
+    checklist: checklist ? JSON.parse(localStorage.getItem(checklistKey) || "[]") : []
   };
   adminOutput.textContent = JSON.stringify(data, null, 2);
 });

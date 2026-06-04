@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>申悅車機助手更新中心零基礎教學</title>
+  <style>
+    :root {
+      --bg: #071018;
+      --panel: #101d2a;
+      --ink: #f4fbff;
+      --muted: #a8bdcf;
+      --line: rgba(72, 216, 255, .24);
+      --cyan: #48d8ff;
+      --red: #ff3347;
+      --gold: #ffd166;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(140deg, #05080d, var(--bg) 62%, #132033);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      line-height: 1.8;
+    }
+    header, main { max-width: 1100px; margin: 0 auto; padding: 28px 18px; }
+    header { padding-top: 42px; }
+    h1 { margin: 0 0 12px; font-size: clamp(32px, 6vw, 58px); line-height: 1.08; }
+    h2 { margin: 0 0 12px; color: var(--cyan); }
+    h3 { margin: 18px 0 8px; }
+    p { margin: 0 0 12px; color: var(--muted); }
+    section {
+      margin: 16px 0;
+      padding: 20px;
+      background: rgba(16, 29, 42, .88);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    .badge {
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      padding: 6px 10px;
+      color: #fff;
+      background: rgba(72, 216, 255, .16);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-weight: 800;
+    }
+    .warn { border-color: rgba(255, 51, 71, .45); background: rgba(255, 51, 71, .1); }
+    .ok { border-color: rgba(53, 231, 164, .36); background: rgba(53, 231, 164, .08); }
+    ol, ul { margin: 0; padding-left: 22px; }
+    li { margin: 8px 0; }
+    code, pre {
+      color: #dff8ff;
+      background: #07131d;
+      border: 1px solid rgba(72, 216, 255, .22);
+      border-radius: 8px;
+    }
+    code { padding: 2px 6px; }
+    pre { padding: 12px; overflow-x: auto; }
+    a { color: var(--cyan); }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,.12); text-align: left; vertical-align: top; }
+    th { color: var(--gold); }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="badge">申悅汽車影音</span>
+    <span class="badge">車載安卓機</span>
+    <span class="badge">全繁體中文</span>
+    <h1>申悅車機助手更新中心零基礎教學</h1>
+    <p>這份教學給完全不懂程式的人使用。新版不是獨立新增「申悅車機助手」下載卡片，而是把完整 APK 更新中心整合到申悅車機助手的「更新」分頁裡。</p>
+  </header>
+
+  <main>
+    <section class="ok">
+      <h2>你現在已經有的檔案</h2>
+      <ul>
+        <li>新版助手 APK：<code>releases\shen-yue-car-assistant-update-center-v2.0.6.apk</code></li>
+        <li>雲端頁面資料夾：<code>cloud-upload</code></li>
+        <li>雲端更新清單：<code>cloud-upload\updates.json</code></li>
+        <li>每個 App 的小圖標：<code>cloud-upload\assets\update-icons</code></li>
+        <li>每個 App 的詳情圖片：<code>cloud-upload\assets\update-gallery</code></li>
+        <li>APK 來源資料夾：<code>C:\Users\Administrator\Downloads\更新</code></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>新版更新中心位置</h2>
+      <ol>
+        <li>打開 <strong>申悅車機助手</strong>。</li>
+        <li>點首頁或下方導覽列的 <strong>更新</strong>。</li>
+        <li>畫面會進入完整 APK 更新中心。</li>
+        <li>每個 APK 會顯示一個可點擊圖標。</li>
+        <li>點圖標後會進入單獨頁面，顯示小圖標、介紹、版本、大小、兩張圖片位置與下載按鈕。</li>
+      </ol>
+      <p>申悅車機助手本身不會出現在 APK 更新清單內；它是主程式入口。首頁導覽列目前只保留「首頁、服務、教學、保固、更新、聯絡」，已移除「交車」。</p>
+    </section>
+
+    <section class="warn">
+      <h2>重要限制：Android 仍會要求確認安裝</h2>
+      <p>一般 APK 沒有系統權限，不能偷偷靜默安裝或替換其他 App。這個更新中心可以讓雲端清單、圖片、介紹、APK 下載來源隨時更新；實際安裝時，Android 系統仍會跳出確認畫面。</p>
+      <p>如果車機廠商提供系統權限或靜默安裝權限，才可能做到完全免確認安裝。</p>
+    </section>
+
+    <section>
+      <h2>第一步：放入要上架的 APK</h2>
+      <ol>
+        <li>打開資料夾：<code>C:\Users\Administrator\Downloads\更新</code></li>
+        <li>把要提供下載更新的 APK 放進去。</li>
+        <li><code>助手.apk</code> 會自動排除，不會顯示在更新中心。</li>
+        <li>如果檔名是 <code>卡1.apk</code>，更新中心會顯示為 <strong>卡1</strong>。</li>
+        <li>同一個 App 要更新時，新 APK 的 <code>versionCode</code> 必須比舊版高。</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>第二步：產生更新清單、圖標與圖片位置</h2>
+      <p>在專案資料夾執行：</p>
+      <pre>powershell -ExecutionPolicy Bypass -File .\tools\import-update-apks.ps1</pre>
+      <p>它會自動完成：</p>
+      <ul>
+        <li>解析每個 APK 的名稱、版本、大小與下載檔。</li>
+        <li>複製 APK 到 <code>cloud-upload\apks</code>。</li>
+        <li>產生 App 小圖標到 <code>cloud-upload\assets\update-icons</code>。</li>
+        <li>每個 App 產生兩張圖片位置到 <code>cloud-upload\assets\update-gallery</code>。</li>
+        <li>更新 <code>cloud-upload\updates.json</code>。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>第三步：重新建置申悅車機助手 APK</h2>
+      <pre>powershell -ExecutionPolicy Bypass -File .\tools\build-release.ps1</pre>
+      <p>建置完成後，APK 會在：</p>
+      <pre>releases\shen-yue-car-assistant-update-center-v2.0.6.apk</pre>
+    </section>
+
+    <section>
+      <h2>第四步：一鍵上傳 GitHub</h2>
+      <p>你已安裝 GitHub CLI，位置是：</p>
+      <pre>D:\Program Files\GitHub CLI\gh.exe</pre>
+      <p>執行：</p>
+      <pre>powershell -ExecutionPolicy Bypass -File .\tools\upload-github-cloud.ps1</pre>
+      <p>它會自動上傳到：</p>
+      <ul>
+        <li><code>https://github.com/SYLONG7708/shen-yue-iphone-assistant</code>：申悅車機助手網頁與更新中心頁面。</li>
+        <li><code>https://github.com/SYLONG7708/update</code>：更新中心清單、圖標、圖片。</li>
+        <li><code>https://github.com/SYLONG7708/update/releases/tag/apk-cloud</code>：大型 APK 檔案。</li>
+        <li><code>https://github.com/SYLONG7708/shen-yue-iphone-assistant/releases/tag/assistant-apk</code>：新版申悅車機助手 APK。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>第五步：車機端使用</h2>
+      <ol>
+        <li>把 <code>shen-yue-car-assistant-update-center-v2.0.6.apk</code> 安裝到安卓車機。</li>
+        <li>打開 <strong>申悅車機助手</strong>。</li>
+        <li>點 <strong>更新</strong>。</li>
+        <li>第一次使用先按 <strong>安裝權限</strong>，允許未知來源安裝。</li>
+        <li>按 <strong>重新整理</strong>。</li>
+        <li>點 App 項目進入單獨頁面。</li>
+        <li>確認介紹、版本與圖片後按 <strong>下載安裝</strong>。</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>如何替換單獨頁面的兩張圖片</h2>
+      <ol>
+        <li>打開 <code>cloud-upload\updates.json</code>。</li>
+        <li>找到要修改的 App。</li>
+        <li>找到 <code>galleryImages</code>，裡面會有兩個圖片檔名。</li>
+        <li>到 <code>cloud-upload\assets\update-gallery</code>。</li>
+        <li>用自己的 PNG 或 JPG 圖片覆蓋同名檔案。</li>
+        <li>檔名保持一樣，重新執行上傳腳本即可。</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>如何修改介紹文字</h2>
+      <p>打開 <code>cloud-upload\updates.json</code>，找到對應 App：</p>
+      <table>
+        <thead><tr><th>欄位</th><th>用途</th></tr></thead>
+        <tbody>
+          <tr><td><code>name</code></td><td>圖標下方與單獨頁標題。</td></tr>
+          <tr><td><code>description</code></td><td>單獨頁介紹文字，可長按複製。</td></tr>
+          <tr><td><code>iconUrl</code></td><td>更新中心小圖標。</td></tr>
+          <tr><td><code>galleryImages</code></td><td>單獨頁兩張圖片位置。</td></tr>
+          <tr><td><code>versionName</code></td><td>畫面顯示版本。</td></tr>
+          <tr><td><code>apkUrl</code></td><td>下載安裝時使用，畫面不顯示給客戶。</td></tr>
+          <tr><td><code>sha256</code></td><td>下載驗證使用，畫面不顯示給客戶。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="warn">
+      <h2>大檔 APK 注意事項</h2>
+      <p>GitHub 一般倉庫不適合直接放超過 100 MB 的大 APK。這版已改用 GitHub Releases 放 APK，所以 Netflix、卡1、無廣告等大檔可以正常放到 Release 下載。</p>
+    </section>
+
+    <section>
+      <h2>常見問題</h2>
+      <h3>打開更新頁沒有看到檔案</h3>
+      <p>先確認 <code>updates.json</code> 已上傳到 <code>SYLONG7708/update</code>，再按「重新整理」。如果 GitHub 暫時讀不到，APK 內建清單會作為備援。</p>
+      <h3>按下載後顯示「已是最新」</h3>
+      <p>代表車機內已安裝版本碼大於或等於雲端版本碼。請確認新版 APK 的 <code>versionCode</code> 有變高。</p>
+      <h3>下載後不能覆蓋安裝</h3>
+      <p>通常是包名相同但簽章不同。Android 會要求先移除舊版再安裝。</p>
+      <h3>我不想顯示下載網址、包名、SHA</h3>
+      <p>新版畫面已隱藏這些欄位，只保留系統下載與驗證使用。</p>
+    </section>
+  </main>
+</body>
+</html>

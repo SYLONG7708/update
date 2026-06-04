@@ -1,4 +1,4 @@
-const cacheName = "shen-yue-assistant-v205-update-first-no-icons";
+const cacheName = "shen-yue-assistant-v206-gallery-name-fix";
 const assets = [
   "./",
   "./index.html",

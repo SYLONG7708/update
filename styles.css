@@ -1020,8 +1020,9 @@ h3 {
 .update-gallery-slot img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  height: clamp(220px, 24vw, 420px);
+  object-fit: contain;
+  background: #050b12;
 }
 
 .update-gallery-slot figcaption {
@@ -1237,6 +1238,10 @@ h3 {
     aspect-ratio: 16 / 9;
     height: auto;
     min-height: 0;
+  }
+
+  .update-gallery-slot img {
+    height: clamp(180px, 56vw, 320px);
   }
 
   .update-copy-list div {

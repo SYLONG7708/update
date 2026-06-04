@@ -1,7 +1,7 @@
 {
     "schema":  1,
     "channel":  "stable",
-    "updatedAt":  "2026-06-04T07:49:35+08:00",
+    "updatedAt":  "2026-06-04T08:30:58+08:00",
     "apps":  [
                  {
                      "id":  "com-disney-disneyplus-1765287900",
@@ -18,7 +18,7 @@
                      "iconUrl":  "assets/update-icons/com-disney-disneyplus-1765287900-icon.png",
                      "galleryImages":  [
                                            "assets/update-gallery/com-disney-disneyplus-1765287900-photo-1.png",
-                                           "assets/update-gallery/com-disney-disneyplus-1765287900-photo-2.png"
+                                           "assets/update-gallery/com-disney-disneyplus-1765287900-photo-2.jpg"
                                        ],
                      "description":  "Disney+ 影音串流 APK，提供電影、影集與兒童內容觀看，適合車機在停車休息或後座娛樂時使用。",
                      "changelog":  [
@@ -66,7 +66,7 @@
                      "iconUrl":  "assets/update-icons/com-netflix-mediaclient-64073-icon.png",
                      "galleryImages":  [
                                            "assets/update-gallery/com-netflix-mediaclient-64073-photo-1.png",
-                                           "assets/update-gallery/com-netflix-mediaclient-64073-photo-2.png"
+                                           "assets/update-gallery/com-netflix-mediaclient-64073-photo-2.jpeg"
                                        ],
                      "description":  "Netflix 影音串流 APK，提供影集、電影與紀錄片觀看，適合車機影音測試與乘客娛樂使用。",
                      "changelog":  [
@@ -125,7 +125,7 @@
                  },
                  {
                      "id":  "tw-com-ainvest-outpack-228",
-                     "name":  "绁炵浘娓€熺収鐩?\napplication-label-ar:",
+                     "name":  "神盾測速照相",
                      "packageName":  "tw.com.ainvest.outpack",
                      "versionCode":  228,
                      "versionName":  "3.8.1",
@@ -162,7 +162,7 @@
                      "iconUrl":  "assets/update-icons/app-revanced-android-gms-250932004-icon.png",
                      "galleryImages":  [
                                            "assets/update-gallery/app-revanced-android-gms-250932004-photo-1.png",
-                                           "assets/update-gallery/app-revanced-android-gms-250932004-photo-2.png"
+                                           "assets/update-gallery/app-revanced-android-gms-250932004-photo-2.jpg"
                                        ],
                      "description":  "microG Services APK，提供部分修改版影音 App 所需的 Google 登入與背景服務相容支援。",
                      "changelog":  [
@@ -186,7 +186,7 @@
                      "iconUrl":  "assets/update-icons/app-morphe-android-youtube-1558230464-icon.png",
                      "galleryImages":  [
                                            "assets/update-gallery/app-morphe-android-youtube-1558230464-photo-1.png",
-                                           "assets/update-gallery/app-morphe-android-youtube-1558230464-photo-2.png"
+                                           "assets/update-gallery/app-morphe-android-youtube-1558230464-photo-2.jpg"
                                        ],
                      "description":  "YouTube Morphe APK，提供 YouTube 影音播放用途，請依你的測試需求確認版本與車機相容性。",
                      "changelog":  [
