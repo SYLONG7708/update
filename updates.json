@@ -1,7 +1,7 @@
 ﻿{
     "schema":  1,
     "channel":  "stable",
-    "updatedAt":  "2026-06-09T00:48:58+08:00",
+    "updatedAt":  "2026-06-09T01:02:25+08:00",
     "apps":  [
                  {
                      "id":  "tw.com.shenyue.assistant-110",
@@ -13,7 +13,7 @@
                      "targetSdk":  "36",
                      "sizeLabel":  "2.5 MB",
                      "apkUrl":  "https://github.com/SYLONG7708/update/releases/download/apk-cloud/tw.com.shenyue.assistant-110.apk",
-                     "sha256":  "2bcbf940de199e0b761dbf200b38ac89de31a18534ab0c11663fedf41ff40c9c",
+                     "sha256":  "ada86dc494bbd77d740645c7832b08e2621ce8e045a7f54aef673aca09aac0c0",
                      "imageUrl":  "https://sylong7708.github.io/shen-yue-iphone-assistant/assets/update-gallery/tw.com.shenyue.assistant-110-photo-1.png",
                      "iconUrl":  "https://sylong7708.github.io/shen-yue-iphone-assistant/assets/update-icons/tw.com.shenyue.assistant-110-icon.png",
                      "galleryImages":  [
