@@ -1,8 +1,33 @@
-{
+﻿{
     "schema":  1,
     "channel":  "stable",
-    "updatedAt":  "2026-06-04T08:30:58+08:00",
+    "updatedAt":  "2026-06-09T00:48:58+08:00",
     "apps":  [
+                 {
+                     "id":  "tw.com.shenyue.assistant-110",
+                     "name":  "申悅車機助手",
+                     "packageName":  "tw.com.shenyue.assistant",
+                     "versionCode":  110,
+                     "versionName":  "1.0.10-live",
+                     "minAndroid":  "依 APK 設定",
+                     "targetSdk":  "36",
+                     "sizeLabel":  "2.5 MB",
+                     "apkUrl":  "https://github.com/SYLONG7708/update/releases/download/apk-cloud/tw.com.shenyue.assistant-110.apk",
+                     "sha256":  "2bcbf940de199e0b761dbf200b38ac89de31a18534ab0c11663fedf41ff40c9c",
+                     "imageUrl":  "https://sylong7708.github.io/shen-yue-iphone-assistant/assets/update-gallery/tw.com.shenyue.assistant-110-photo-1.png",
+                     "iconUrl":  "https://sylong7708.github.io/shen-yue-iphone-assistant/assets/update-icons/tw.com.shenyue.assistant-110-icon.png",
+                     "galleryImages":  [
+                                           "https://sylong7708.github.io/shen-yue-iphone-assistant/assets/update-gallery/tw.com.shenyue.assistant-110-photo-1.png",
+                                           "https://sylong7708.github.io/shen-yue-iphone-assistant/assets/update-gallery/tw.com.shenyue.assistant-110-photo-2.png"
+                                       ],
+                     "category":  "申悅助手",
+                     "description":  "申悅車機助手即時更新版，修正更新中心上傳驗證與雲端清單同步，App 名稱顯示為申悅車機助手。",
+                     "changelog":  [
+                                       "已加入申悅車機更新中心",
+                                       "可在車機內下載安裝",
+                                       "修正上傳成功驗證與雲端清單同步"
+                                   ]
+                 },
                  {
                      "id":  "com-disney-disneyplus-1765287900",
                      "name":  "Disney+",
