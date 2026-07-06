@@ -15,7 +15,12 @@ if (-not $UpdateRepoPath) {
 
 if (-not $UploadKey) {
   $bytes = New-Object byte[] 12
-  [System.Security.Cryptography.RandomNumberGenerator]::Fill($bytes)
+  $rng = New-Object System.Security.Cryptography.RNGCryptoServiceProvider
+  try {
+    $rng.GetBytes($bytes)
+  } finally {
+    $rng.Dispose()
+  }
   $UploadKey = ([System.BitConverter]::ToString($bytes)).Replace("-", "").ToLowerInvariant()
 }
 
