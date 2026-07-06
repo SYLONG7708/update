@@ -14,6 +14,7 @@ const RELEASE_TAG = process.env.RELEASE_TAG || "apk-cloud";
 const APPS_SCRIPT_ENDPOINT = process.env.APPS_SCRIPT_ENDPOINT || "https://script.google.com/macros/s/AKfycbwrUCUeksZrWOUSDrdKgUGTS1JIPRX3c18PIKgZu_j64jBZGXjI7rnHTFjmIqUljZFzeg/exec";
 const UPLOAD_TOKEN = process.env.SHENYUE_UPLOAD_KEY || randomBytes(12).toString("hex");
 const MAX_UPLOAD_BYTES = Number(process.env.MAX_UPLOAD_BYTES || 1024 * 1024 * 1024);
+const MAX_IMAGE_BYTES = Number(process.env.MAX_IMAGE_BYTES || 20 * 1024 * 1024);
 const TEMP_ROOT = resolve(process.env.SHENYUE_UPLOAD_TEMP || join(UPDATE_REPO_PATH, "output", "uploader-temp"));
 let uploadBusy = false;
 
@@ -107,6 +108,17 @@ function safeAssetName(value) {
   const name = basename(String(value || "").trim()).replace(/[\\/:*?"<>|]+/g, "_");
   if (!name) return "";
   return /\.apk$/i.test(name) ? name : `${name}.apk`;
+}
+
+function safeImageExtension(name, contentType = "") {
+  const rawExt = extname(String(name || "").split("?")[0].split("#")[0]).toLowerCase();
+  if ([".png", ".jpg", ".jpeg", ".webp", ".gif"].includes(rawExt)) return rawExt;
+  const type = String(contentType || "").toLowerCase();
+  if (type.includes("png")) return ".png";
+  if (type.includes("jpeg") || type.includes("jpg")) return ".jpg";
+  if (type.includes("webp")) return ".webp";
+  if (type.includes("gif")) return ".gif";
+  return "";
 }
 
 function cleanText(value, maxLength = 500) {
@@ -211,15 +223,21 @@ function hashFile(path) {
 
 function findManifestItem(manifest, query, metadata) {
   if (isCreateMode(query)) return null;
+  return findExistingManifestItem(manifest, query, metadata);
+}
+
+function findExistingManifestItem(manifest, query, metadata = {}) {
   const itemId = String(query.itemId || "").trim();
   const assetName = safeAssetName(query.assetName || "");
-  const packageName = metadata.packageName || "";
+  const packageName = metadata.packageName || String(query.packageName || "").trim();
+  const appName = String(query.appName || query.name || "").trim();
   return manifest.apps.find((item) => {
     const currentAsset = getAssetNameFromUrl(item.apkUrl);
     return (
       (itemId && [item.id, item.packageName, item.name, currentAsset].includes(itemId)) ||
       (assetName && currentAsset === assetName) ||
-      (packageName && item.packageName === packageName)
+      (packageName && item.packageName === packageName) ||
+      (appName && item.name === appName)
     );
   }) || null;
 }
@@ -290,12 +308,12 @@ function refreshRepo(repoPath, remoteRepo) {
   return pull.output;
 }
 
-function gitSyncRepo(repoPath, remoteRepo, message) {
+function gitSyncRepo(repoPath, remoteRepo, message, paths = ["updates.json"]) {
   const statusBefore = run("git", ["status", "--porcelain"], repoPath);
   if (!statusBefore) {
     return { committed: false, pushed: false, message: "沒有檔案變更" };
   }
-  run("git", ["add", "updates.json"], repoPath);
+  run("git", ["add", ...paths], repoPath);
   const commit = tryRun("git", ["commit", "-m", message], repoPath);
   if (!commit.ok && !/nothing to commit/i.test(commit.output)) {
     throw new Error(`Git commit 失敗：${commit.output}`);
@@ -375,6 +393,104 @@ async function saveIncomingFile(req, originalName) {
     throw new Error("APK 暫存失敗，收到的檔案大小為 0。");
   }
   return path;
+}
+
+async function saveIncomingImage(req, originalName) {
+  mkdirSync(TEMP_ROOT, { recursive: true });
+  const ext = safeImageExtension(originalName, req.headers["content-type"]);
+  if (!ext) {
+    throw new Error("只接受 PNG、JPG、WEBP、GIF 圖片。");
+  }
+  const cleanName = basename(String(originalName || `icon-${Date.now()}${ext}`)).replace(/[\\/:*?"<>|]+/g, "_");
+  const path = join(TEMP_ROOT, `${Date.now()}-${cleanName || `icon${ext}`}`);
+  let bytes = 0;
+  await new Promise((resolveWrite, rejectWrite) => {
+    const output = createWriteStream(path);
+    req.on("data", (chunk) => {
+      bytes += chunk.length;
+      if (bytes > MAX_IMAGE_BYTES) {
+        rejectWrite(new Error("圖標圖片超過上傳大小限制。"));
+        req.destroy();
+        return;
+      }
+    });
+    req.on("error", rejectWrite);
+    output.on("error", rejectWrite);
+    output.on("finish", resolveWrite);
+    req.pipe(output);
+  });
+  if (!existsSync(path) || bytes <= 0) {
+    throw new Error("圖標暫存失敗，沒有收到有效圖片。");
+  }
+  return { path, ext, bytes };
+}
+
+function writeIconAsset(repoPath, relativePath, sourcePath) {
+  const destination = join(repoPath, ...relativePath.split("/"));
+  mkdirSync(dirname(destination), { recursive: true });
+  copyFileSync(sourcePath, destination);
+}
+
+function syncAssistantManifestAndIcon(manifest, relativeIconPath) {
+  if (!existsSync(join(ASSISTANT_REPO_PATH, ".git")) || !existsSync(join(ASSISTANT_REPO_PATH, "updates.json"))) {
+    return { ok: false, skipped: true, message: "未找到申悅助手 repo，略過備援清單同步" };
+  }
+  writeManifest(ASSISTANT_REPO_PATH, manifest);
+  return gitSyncRepo(
+    ASSISTANT_REPO_PATH,
+    ASSISTANT_REPO,
+    "Sync update icon for public uploader",
+    ["updates.json", relativeIconPath]
+  );
+}
+
+async function processIconUpload(tempImage, query) {
+  refreshRepo(UPDATE_REPO_PATH, GITHUB_REPO);
+  if (existsSync(join(ASSISTANT_REPO_PATH, ".git"))) {
+    refreshRepo(ASSISTANT_REPO_PATH, ASSISTANT_REPO);
+  }
+
+  const manifest = readManifest(UPDATE_REPO_PATH);
+  const item = findExistingManifestItem(manifest, query);
+  if (!item) {
+    const error = new Error("找不到要更換圖標的更新項目，請先選擇目標 App，或先新增 APK。");
+    error.statusCode = 404;
+    throw error;
+  }
+
+  const iconFileName = `${slug(item.id || item.packageName || item.name)}-icon${tempImage.ext}`;
+  const relativeIconPath = `assets/update-icons/${iconFileName}`;
+  writeIconAsset(UPDATE_REPO_PATH, relativeIconPath, tempImage.path);
+  writeIconAsset(ASSISTANT_REPO_PATH, relativeIconPath, tempImage.path);
+
+  item.iconUrl = relativeIconPath;
+  manifest.schema = 1;
+  manifest.channel = manifest.channel || "stable";
+  manifest.updatedAt = taipeiTimestamp();
+  writeManifest(UPDATE_REPO_PATH, manifest);
+
+  const updateGit = gitSyncRepo(
+    UPDATE_REPO_PATH,
+    GITHUB_REPO,
+    `Update ${item.name} icon asset`,
+    ["updates.json", relativeIconPath]
+  );
+  const assistantGit = syncAssistantManifestAndIcon(manifest, relativeIconPath);
+  const appsScript = await syncAppsScript(manifest);
+
+  return {
+    ok: true,
+    operation: "icon",
+    message: "圖標已更換並同步更新中心",
+    item,
+    iconUrl: relativeIconPath,
+    iconBytes: tempImage.bytes,
+    updateGit,
+    assistantGit,
+    appsScript,
+    manifestUpdatedAt: manifest.updatedAt,
+    appsCount: manifest.apps.length
+  };
 }
 
 async function processUpload(tempPath, query) {
@@ -475,6 +591,8 @@ async function handleRequest(req, res) {
         features: {
           createApk: true,
           replaceApk: true,
+          replaceIcon: true,
+          iconUpload: true,
           metadataFields: ["appName", "category", "description", "iconUrl", "imageUrl", "changelog"]
         },
         githubRepo: GITHUB_REPO,
@@ -484,6 +602,24 @@ async function handleRequest(req, res) {
         manifestUpdatedAt: manifest.updatedAt,
         apps: manifest.apps
       });
+      return;
+    }
+
+    if (url.pathname === "/api/icon" && (req.method === "PUT" || req.method === "POST")) {
+      requireToken(req, url);
+      if (uploadBusy) {
+        json(res, 409, { ok: false, message: "已有上傳正在處理，請稍後再試。" });
+        return;
+      }
+      uploadBusy = true;
+      try {
+        const headerName = req.headers["x-file-name"] ? decodeURIComponent(String(req.headers["x-file-name"])) : "";
+        const tempImage = await saveIncomingImage(req, headerName || url.searchParams.get("fileName") || "icon.png");
+        const result = await processIconUpload(tempImage, Object.fromEntries(url.searchParams.entries()));
+        json(res, 200, result);
+      } finally {
+        uploadBusy = false;
+      }
       return;
     }
 
