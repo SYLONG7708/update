@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "channel": "stable",
-  "updatedAt": "2026-07-06T22:06:24+08:00",
+  "updatedAt": "2026-07-06T22:07:20+08:00",
   "apps": [
     {
       "id": "tw.com.sylong.tvcar-7",
@@ -10,8 +10,8 @@
       "packageName": "tw.com.sylong.tvcar",
       "versionCode": 7,
       "versionName": "1.1.3-machine8-fullscreen",
-      "minAndroid": "依 APK 設定",
-      "targetSdk": "",
+      "minAndroid": "Android SDK 23",
+      "targetSdk": "28",
       "sizeLabel": "274 KB",
       "apkUrl": "https://github.com/SYLONG7708/update/releases/download/apk-cloud/tw.com.sylong.tvcar-7.apk",
       "sha256": "e4c3aa6e438752167cee9834944305824e394aa15f18859354756ca0c5134ce8",
