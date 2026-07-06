@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "channel": "stable",
-  "updatedAt": "2026-07-06T22:07:20+08:00",
+  "updatedAt": "2026-07-06T22:21:53+08:00",
   "apps": [
     {
       "id": "tw.com.sylong.tvcar-7",
@@ -16,7 +16,7 @@
       "apkUrl": "https://github.com/SYLONG7708/update/releases/download/apk-cloud/tw.com.sylong.tvcar-7.apk",
       "sha256": "e4c3aa6e438752167cee9834944305824e394aa15f18859354756ca0c5134ce8",
       "imageUrl": "assets/update-splash.png",
-      "iconUrl": "assets/app-logo.png",
+      "iconUrl": "assets/update-icons/tw.com.sylong.tvcar-7-icon.png",
       "galleryImages": [],
       "description": "影視播放 APK，提供車機影音播放使用。",
       "changelog": [
