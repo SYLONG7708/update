@@ -175,8 +175,10 @@ function findAapt() {
 }
 
 function parseAaptValue(line, key) {
-  const match = line.match(new RegExp(`${key}='([^']*)'`));
-  return match ? match[1] : "";
+  const attributeMatch = line.match(new RegExp(`${key}='([^']*)'`));
+  if (attributeMatch) return attributeMatch[1];
+  const colonMatch = line.match(new RegExp(`${key}:'([^']*)'`));
+  return colonMatch ? colonMatch[1] : "";
 }
 
 function inspectApk(apkPath) {
