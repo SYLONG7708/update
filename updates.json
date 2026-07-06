@@ -1,224 +1,246 @@
-﻿{
-    "schema":  1,
-    "channel":  "stable",
-    "updatedAt":  "2026-06-09T01:02:25+08:00",
-    "apps":  [
-                 {
-                     "id":  "tw.com.shenyue.assistant-110",
-                     "name":  "申悅車機助手",
-                     "packageName":  "tw.com.shenyue.assistant",
-                     "versionCode":  110,
-                     "versionName":  "1.0.10-live",
-                     "minAndroid":  "依 APK 設定",
-                     "targetSdk":  "36",
-                     "sizeLabel":  "2.5 MB",
-                     "apkUrl":  "https://github.com/SYLONG7708/update/releases/download/apk-cloud/tw.com.shenyue.assistant-110.apk",
-                     "sha256":  "ada86dc494bbd77d740645c7832b08e2621ce8e045a7f54aef673aca09aac0c0",
-                     "imageUrl":  "https://sylong7708.github.io/shen-yue-iphone-assistant/assets/update-gallery/tw.com.shenyue.assistant-110-photo-1.png",
-                     "iconUrl":  "https://sylong7708.github.io/shen-yue-iphone-assistant/assets/update-icons/tw.com.shenyue.assistant-110-icon.png",
-                     "galleryImages":  [
-                                           "https://sylong7708.github.io/shen-yue-iphone-assistant/assets/update-gallery/tw.com.shenyue.assistant-110-photo-1.png",
-                                           "https://sylong7708.github.io/shen-yue-iphone-assistant/assets/update-gallery/tw.com.shenyue.assistant-110-photo-2.png"
-                                       ],
-                     "category":  "申悅助手",
-                     "description":  "申悅車機助手即時更新版，修正更新中心上傳驗證與雲端清單同步，App 名稱顯示為申悅車機助手。",
-                     "changelog":  [
-                                       "已加入申悅車機更新中心",
-                                       "可在車機內下載安裝",
-                                       "修正上傳成功驗證與雲端清單同步"
-                                   ]
-                 },
-                 {
-                     "id":  "com-disney-disneyplus-1765287900",
-                     "name":  "Disney+",
-                     "packageName":  "com.disney.disneyplus",
-                     "versionCode":  1765287900,
-                     "versionName":  "4.20.2+rc1-2025.12.09",
-                     "minAndroid":  "依 APK 設定",
-                     "targetSdk":  "36",
-                     "sizeLabel":  "41.6 MB",
-                     "apkUrl":  "https://github.com/SYLONG7708/update/releases/download/apk-cloud/com-disney-disneyplus-1765287900.apk",
-                     "sha256":  "e2c29f4b63807c3225a5ef070b5491939be269041d23a8ea0331fab60c7131d2",
-                     "imageUrl":  "assets/update-apps/com-disney-disneyplus-1765287900.png",
-                     "iconUrl":  "assets/update-icons/com-disney-disneyplus-1765287900-icon.png",
-                     "galleryImages":  [
-                                           "assets/update-gallery/com-disney-disneyplus-1765287900-photo-1.png",
-                                           "assets/update-gallery/com-disney-disneyplus-1765287900-photo-2.jpg"
-                                       ],
-                     "description":  "Disney+ 影音串流 APK，提供電影、影集與兒童內容觀看，適合車機在停車休息或後座娛樂時使用。",
-                     "changelog":  [
-                                       "已加入申悅車機更新中心",
-                                       "可在車機內下載安裝",
-                                       "介紹與版本資訊可長按複製"
-                                   ]
-                 },
-                 {
-                     "id":  "com-google-android-inputmethod-latin-80959513",
-                     "name":  "Gboard",
-                     "packageName":  "com.google.android.inputmethod.latin",
-                     "versionCode":  80959513,
-                     "versionName":  "11.6.10.433184565-beta-armeabi-v7a",
-                     "minAndroid":  "依 APK 設定",
-                     "targetSdk":  "31",
-                     "sizeLabel":  "60.4 MB",
-                     "apkUrl":  "https://github.com/SYLONG7708/update/releases/download/apk-cloud/com-google-android-inputmethod-latin-80959513.apk",
-                     "sha256":  "09647a1f6938ee9e297f848f5ce2b4b94e1e82cc14ad8aedb15928be2915dd89",
-                     "imageUrl":  "assets/update-apps/com-google-android-inputmethod-latin-80959513.png",
-                     "iconUrl":  "assets/update-icons/com-google-android-inputmethod-latin-80959513-icon.png",
-                     "galleryImages":  [
-                                           "assets/update-gallery/com-google-android-inputmethod-latin-80959513-photo-1.png",
-                                           "assets/update-gallery/com-google-android-inputmethod-latin-80959513-photo-2.png"
-                                       ],
-                     "description":  "Gboard Google 鍵盤 APK，提供中文注音、英文、語音輸入與多語系鍵盤，適合車機搜尋導航、YouTube 或輸入帳號文字。",
-                     "changelog":  [
-                                       "已加入申悅車機更新中心",
-                                       "可在車機內下載安裝",
-                                       "介紹與版本資訊可長按複製"
-                                   ]
-                 },
-                 {
-                     "id":  "com-netflix-mediaclient-64073",
-                     "name":  "Netflix",
-                     "packageName":  "com.netflix.mediaclient",
-                     "versionCode":  64073,
-                     "versionName":  "9.55.0 build 6 64073",
-                     "minAndroid":  "依 APK 設定",
-                     "targetSdk":  "36",
-                     "sizeLabel":  "119.8 MB",
-                     "apkUrl":  "https://github.com/SYLONG7708/update/releases/download/apk-cloud/com-netflix-mediaclient-64073.apk",
-                     "sha256":  "b9802bb1b81f5b5e67b8df927a14201187903ff8269bd04cc5947bc6464b293c",
-                     "imageUrl":  "assets/update-apps/com-netflix-mediaclient-64073.png",
-                     "iconUrl":  "assets/update-icons/com-netflix-mediaclient-64073-icon.png",
-                     "galleryImages":  [
-                                           "assets/update-gallery/com-netflix-mediaclient-64073-photo-1.png",
-                                           "assets/update-gallery/com-netflix-mediaclient-64073-photo-2.jpeg"
-                                       ],
-                     "description":  "Netflix 影音串流 APK，提供影集、電影與紀錄片觀看，適合車機影音測試與乘客娛樂使用。",
-                     "changelog":  [
-                                       "已加入申悅車機更新中心",
-                                       "可在車機內下載安裝",
-                                       "介紹與版本資訊可長按複製"
-                                   ]
-                 },
-                 {
-                     "id":  "com-kingwaytek-1717",
-                     "name":  "卡1",
-                     "packageName":  "com.kingwaytek",
-                     "versionCode":  1717,
-                     "versionName":  "2.790.2.717",
-                     "minAndroid":  "依 APK 設定",
-                     "targetSdk":  "28",
-                     "sizeLabel":  "104.4 MB",
-                     "apkUrl":  "https://github.com/SYLONG7708/update/releases/download/apk-cloud/com-kingwaytek-1717.apk",
-                     "sha256":  "1644a27603d99ef9247fe0fca09fd9e4407fdb69f6e989992b0e9eb4f80a3416",
-                     "imageUrl":  "assets/update-apps/com-kingwaytek-1717.png",
-                     "iconUrl":  "assets/update-icons/com-kingwaytek-1717-icon.png",
-                     "galleryImages":  [
-                                           "assets/update-gallery/com-kingwaytek-1717-photo-1.png",
-                                           "assets/update-gallery/com-kingwaytek-1717-photo-2.png"
-                                       ],
-                     "description":  "樂客導航王 A5i APK，提供台灣導航、路線規劃與車機導航測試使用。",
-                     "changelog":  [
-                                       "已加入申悅車機更新中心",
-                                       "可在車機內下載安裝",
-                                       "介紹與版本資訊可長按複製"
-                                   ]
-                 },
-                 {
-                     "id":  "com-google-android-apps-inputmethod-zhuyin-2451412",
-                     "name":  "Google Zhuyin Input",
-                     "packageName":  "com.google.android.apps.inputmethod.zhuyin",
-                     "versionCode":  2451412,
-                     "versionName":  "2.4.5.164561151-armeabi-v7a",
-                     "minAndroid":  "依 APK 設定",
-                     "targetSdk":  "26",
-                     "sizeLabel":  "16.7 MB",
-                     "apkUrl":  "https://github.com/SYLONG7708/update/releases/download/apk-cloud/com-google-android-apps-inputmethod-zhuyin-2451412.apk",
-                     "sha256":  "803686bbcee5aaf9b13d89582ac354468c3abed3071ea8d7ca86dcc18210fed2",
-                     "imageUrl":  "assets/update-apps/com-google-android-apps-inputmethod-zhuyin-2451412.png",
-                     "iconUrl":  "assets/update-icons/com-google-android-apps-inputmethod-zhuyin-2451412-icon.png",
-                     "galleryImages":  [
-                                           "assets/update-gallery/com-google-android-apps-inputmethod-zhuyin-2451412-photo-1.png",
-                                           "assets/update-gallery/com-google-android-apps-inputmethod-zhuyin-2451412-photo-2.png"
-                                       ],
-                     "description":  "Google 注音輸入法 APK，提供傳統注音鍵盤，適合較舊 Android 車機或指定注音輸入需求。",
-                     "changelog":  [
-                                       "已加入申悅車機更新中心",
-                                       "可在車機內下載安裝",
-                                       "介紹與版本資訊可長按複製"
-                                   ]
-                 },
-                 {
-                     "id":  "tw-com-ainvest-outpack-228",
-                     "name":  "神盾測速照相",
-                     "packageName":  "tw.com.ainvest.outpack",
-                     "versionCode":  228,
-                     "versionName":  "3.8.1",
-                     "minAndroid":  "依 APK 設定",
-                     "targetSdk":  "35",
-                     "sizeLabel":  "70.2 MB",
-                     "apkUrl":  "https://github.com/SYLONG7708/update/releases/download/apk-cloud/tw-com-ainvest-outpack-228.apk",
-                     "sha256":  "82645422ffad90d0dd331be93afddc5f0428144c60a4855331f8b6e81a9ce233",
-                     "imageUrl":  "assets/update-apps/tw-com-ainvest-outpack-228.png",
-                     "iconUrl":  "assets/update-icons/tw-com-ainvest-outpack-228-icon.png",
-                     "galleryImages":  [
-                                           "assets/update-gallery/tw-com-ainvest-outpack-228-photo-1.png",
-                                           "assets/update-gallery/tw-com-ainvest-outpack-228-photo-2.png"
-                                       ],
-                     "description":  "神盾測速照相 APK，提供測速照相與道路提醒用途，適合車機導航與道路安全功能測試。",
-                     "changelog":  [
-                                       "已加入申悅車機更新中心",
-                                       "可在車機內下載安裝",
-                                       "介紹與版本資訊可長按複製"
-                                   ]
-                 },
-                 {
-                     "id":  "app-revanced-android-gms-250932004",
-                     "name":  "microG Services",
-                     "packageName":  "app.revanced.android.gms",
-                     "versionCode":  250932004,
-                     "versionName":  "0.3.13.2.250932",
-                     "minAndroid":  "依 APK 設定",
-                     "targetSdk":  "29",
-                     "sizeLabel":  "100.7 MB",
-                     "apkUrl":  "https://github.com/SYLONG7708/update/releases/download/apk-cloud/app-revanced-android-gms-250932004.apk",
-                     "sha256":  "62119f040d629a9cd3225f280649a464936730c6466cafb5b9dd5ded14269a65",
-                     "imageUrl":  "assets/update-apps/app-revanced-android-gms-250932004.png",
-                     "iconUrl":  "assets/update-icons/app-revanced-android-gms-250932004-icon.png",
-                     "galleryImages":  [
-                                           "assets/update-gallery/app-revanced-android-gms-250932004-photo-1.png",
-                                           "assets/update-gallery/app-revanced-android-gms-250932004-photo-2.jpg"
-                                       ],
-                     "description":  "microG Services APK，提供部分修改版影音 App 所需的 Google 登入與背景服務相容支援。",
-                     "changelog":  [
-                                       "已加入申悅車機更新中心",
-                                       "可在車機內下載安裝",
-                                       "介紹與版本資訊可長按複製"
-                                   ]
-                 },
-                 {
-                     "id":  "app-morphe-android-youtube-1558230464",
-                     "name":  "YouTube Morphe",
-                     "packageName":  "app.morphe.android.youtube",
-                     "versionCode":  1558230464,
-                     "versionName":  "20.47.62",
-                     "minAndroid":  "依 APK 設定",
-                     "targetSdk":  "36",
-                     "sizeLabel":  "171.7 MB",
-                     "apkUrl":  "https://github.com/SYLONG7708/update/releases/download/apk-cloud/app-morphe-android-youtube-1558230464.apk",
-                     "sha256":  "e2b489d45dfe02d055da7656dcd44d4c4c91802e4a168d6e35312428f024e792",
-                     "imageUrl":  "assets/update-apps/app-morphe-android-youtube-1558230464.png",
-                     "iconUrl":  "assets/update-icons/app-morphe-android-youtube-1558230464-icon.png",
-                     "galleryImages":  [
-                                           "assets/update-gallery/app-morphe-android-youtube-1558230464-photo-1.png",
-                                           "assets/update-gallery/app-morphe-android-youtube-1558230464-photo-2.jpg"
-                                       ],
-                     "description":  "YouTube Morphe APK，提供 YouTube 影音播放用途，請依你的測試需求確認版本與車機相容性。",
-                     "changelog":  [
-                                       "已加入申悅車機更新中心",
-                                       "可在車機內下載安裝",
-                                       "介紹與版本資訊可長按複製"
-                                   ]
-                 }
-             ]
+{
+  "schema": 1,
+  "channel": "stable",
+  "updatedAt": "2026-07-06T22:06:24+08:00",
+  "apps": [
+    {
+      "id": "tw.com.sylong.tvcar-7",
+      "name": "影視",
+      "category": "影音播放",
+      "packageName": "tw.com.sylong.tvcar",
+      "versionCode": 7,
+      "versionName": "1.1.3-machine8-fullscreen",
+      "minAndroid": "依 APK 設定",
+      "targetSdk": "",
+      "sizeLabel": "274 KB",
+      "apkUrl": "https://github.com/SYLONG7708/update/releases/download/apk-cloud/tw.com.sylong.tvcar-7.apk",
+      "sha256": "e4c3aa6e438752167cee9834944305824e394aa15f18859354756ca0c5134ce8",
+      "imageUrl": "assets/update-splash.png",
+      "iconUrl": "assets/app-logo.png",
+      "galleryImages": [],
+      "description": "影視播放 APK，提供車機影音播放使用。",
+      "changelog": [
+        "已加入申悅車機更新中心",
+        "可在車機內下載安裝",
+        "新增影視 APK"
+      ]
+    },
+    {
+      "id": "tw.com.shenyue.assistant-110",
+      "name": "申悅車機助手",
+      "packageName": "tw.com.shenyue.assistant",
+      "versionCode": 110,
+      "versionName": "1.0.10-live",
+      "minAndroid": "依 APK 設定",
+      "targetSdk": "36",
+      "sizeLabel": "2.5 MB",
+      "apkUrl": "https://github.com/SYLONG7708/update/releases/download/apk-cloud/tw.com.shenyue.assistant-110.apk",
+      "sha256": "ada86dc494bbd77d740645c7832b08e2621ce8e045a7f54aef673aca09aac0c0",
+      "imageUrl": "https://sylong7708.github.io/shen-yue-iphone-assistant/assets/update-gallery/tw.com.shenyue.assistant-110-photo-1.png",
+      "iconUrl": "https://sylong7708.github.io/shen-yue-iphone-assistant/assets/update-icons/tw.com.shenyue.assistant-110-icon.png",
+      "galleryImages": [
+        "https://sylong7708.github.io/shen-yue-iphone-assistant/assets/update-gallery/tw.com.shenyue.assistant-110-photo-1.png",
+        "https://sylong7708.github.io/shen-yue-iphone-assistant/assets/update-gallery/tw.com.shenyue.assistant-110-photo-2.png"
+      ],
+      "category": "申悅助手",
+      "description": "申悅車機助手即時更新版，修正更新中心上傳驗證與雲端清單同步，App 名稱顯示為申悅車機助手。",
+      "changelog": [
+        "已加入申悅車機更新中心",
+        "可在車機內下載安裝",
+        "修正上傳成功驗證與雲端清單同步"
+      ]
+    },
+    {
+      "id": "com-disney-disneyplus-1765287900",
+      "name": "Disney+",
+      "packageName": "com.disney.disneyplus",
+      "versionCode": 1765287900,
+      "versionName": "4.20.2+rc1-2025.12.09",
+      "minAndroid": "依 APK 設定",
+      "targetSdk": "36",
+      "sizeLabel": "41.6 MB",
+      "apkUrl": "https://github.com/SYLONG7708/update/releases/download/apk-cloud/com-disney-disneyplus-1765287900.apk",
+      "sha256": "e2c29f4b63807c3225a5ef070b5491939be269041d23a8ea0331fab60c7131d2",
+      "imageUrl": "assets/update-apps/com-disney-disneyplus-1765287900.png",
+      "iconUrl": "assets/update-icons/com-disney-disneyplus-1765287900-icon.png",
+      "galleryImages": [
+        "assets/update-gallery/com-disney-disneyplus-1765287900-photo-1.png",
+        "assets/update-gallery/com-disney-disneyplus-1765287900-photo-2.jpg"
+      ],
+      "description": "Disney+ 影音串流 APK，提供電影、影集與兒童內容觀看，適合車機在停車休息或後座娛樂時使用。",
+      "changelog": [
+        "已加入申悅車機更新中心",
+        "可在車機內下載安裝",
+        "介紹與版本資訊可長按複製"
+      ]
+    },
+    {
+      "id": "com-google-android-inputmethod-latin-80959513",
+      "name": "Gboard",
+      "packageName": "com.google.android.inputmethod.latin",
+      "versionCode": 80959513,
+      "versionName": "11.6.10.433184565-beta-armeabi-v7a",
+      "minAndroid": "依 APK 設定",
+      "targetSdk": "31",
+      "sizeLabel": "60.4 MB",
+      "apkUrl": "https://github.com/SYLONG7708/update/releases/download/apk-cloud/com-google-android-inputmethod-latin-80959513.apk",
+      "sha256": "09647a1f6938ee9e297f848f5ce2b4b94e1e82cc14ad8aedb15928be2915dd89",
+      "imageUrl": "assets/update-apps/com-google-android-inputmethod-latin-80959513.png",
+      "iconUrl": "assets/update-icons/com-google-android-inputmethod-latin-80959513-icon.png",
+      "galleryImages": [
+        "assets/update-gallery/com-google-android-inputmethod-latin-80959513-photo-1.png",
+        "assets/update-gallery/com-google-android-inputmethod-latin-80959513-photo-2.png"
+      ],
+      "description": "Gboard Google 鍵盤 APK，提供中文注音、英文、語音輸入與多語系鍵盤，適合車機搜尋導航、YouTube 或輸入帳號文字。",
+      "changelog": [
+        "已加入申悅車機更新中心",
+        "可在車機內下載安裝",
+        "介紹與版本資訊可長按複製"
+      ]
+    },
+    {
+      "id": "com-netflix-mediaclient-64073",
+      "name": "Netflix",
+      "packageName": "com.netflix.mediaclient",
+      "versionCode": 64073,
+      "versionName": "9.55.0 build 6 64073",
+      "minAndroid": "依 APK 設定",
+      "targetSdk": "36",
+      "sizeLabel": "119.8 MB",
+      "apkUrl": "https://github.com/SYLONG7708/update/releases/download/apk-cloud/com-netflix-mediaclient-64073.apk",
+      "sha256": "b9802bb1b81f5b5e67b8df927a14201187903ff8269bd04cc5947bc6464b293c",
+      "imageUrl": "assets/update-apps/com-netflix-mediaclient-64073.png",
+      "iconUrl": "assets/update-icons/com-netflix-mediaclient-64073-icon.png",
+      "galleryImages": [
+        "assets/update-gallery/com-netflix-mediaclient-64073-photo-1.png",
+        "assets/update-gallery/com-netflix-mediaclient-64073-photo-2.jpeg"
+      ],
+      "description": "Netflix 影音串流 APK，提供影集、電影與紀錄片觀看，適合車機影音測試與乘客娛樂使用。",
+      "changelog": [
+        "已加入申悅車機更新中心",
+        "可在車機內下載安裝",
+        "介紹與版本資訊可長按複製"
+      ]
+    },
+    {
+      "id": "com-kingwaytek-1717",
+      "name": "卡1",
+      "packageName": "com.kingwaytek",
+      "versionCode": 1717,
+      "versionName": "2.790.2.717",
+      "minAndroid": "依 APK 設定",
+      "targetSdk": "28",
+      "sizeLabel": "104.4 MB",
+      "apkUrl": "https://github.com/SYLONG7708/update/releases/download/apk-cloud/com-kingwaytek-1717.apk",
+      "sha256": "1644a27603d99ef9247fe0fca09fd9e4407fdb69f6e989992b0e9eb4f80a3416",
+      "imageUrl": "assets/update-apps/com-kingwaytek-1717.png",
+      "iconUrl": "assets/update-icons/com-kingwaytek-1717-icon.png",
+      "galleryImages": [
+        "assets/update-gallery/com-kingwaytek-1717-photo-1.png",
+        "assets/update-gallery/com-kingwaytek-1717-photo-2.png"
+      ],
+      "description": "樂客導航王 A5i APK，提供台灣導航、路線規劃與車機導航測試使用。",
+      "changelog": [
+        "已加入申悅車機更新中心",
+        "可在車機內下載安裝",
+        "介紹與版本資訊可長按複製"
+      ]
+    },
+    {
+      "id": "com-google-android-apps-inputmethod-zhuyin-2451412",
+      "name": "Google Zhuyin Input",
+      "packageName": "com.google.android.apps.inputmethod.zhuyin",
+      "versionCode": 2451412,
+      "versionName": "2.4.5.164561151-armeabi-v7a",
+      "minAndroid": "依 APK 設定",
+      "targetSdk": "26",
+      "sizeLabel": "16.7 MB",
+      "apkUrl": "https://github.com/SYLONG7708/update/releases/download/apk-cloud/com-google-android-apps-inputmethod-zhuyin-2451412.apk",
+      "sha256": "803686bbcee5aaf9b13d89582ac354468c3abed3071ea8d7ca86dcc18210fed2",
+      "imageUrl": "assets/update-apps/com-google-android-apps-inputmethod-zhuyin-2451412.png",
+      "iconUrl": "assets/update-icons/com-google-android-apps-inputmethod-zhuyin-2451412-icon.png",
+      "galleryImages": [
+        "assets/update-gallery/com-google-android-apps-inputmethod-zhuyin-2451412-photo-1.png",
+        "assets/update-gallery/com-google-android-apps-inputmethod-zhuyin-2451412-photo-2.png"
+      ],
+      "description": "Google 注音輸入法 APK，提供傳統注音鍵盤，適合較舊 Android 車機或指定注音輸入需求。",
+      "changelog": [
+        "已加入申悅車機更新中心",
+        "可在車機內下載安裝",
+        "介紹與版本資訊可長按複製"
+      ]
+    },
+    {
+      "id": "tw-com-ainvest-outpack-228",
+      "name": "神盾測速照相",
+      "packageName": "tw.com.ainvest.outpack",
+      "versionCode": 228,
+      "versionName": "3.8.1",
+      "minAndroid": "依 APK 設定",
+      "targetSdk": "35",
+      "sizeLabel": "70.2 MB",
+      "apkUrl": "https://github.com/SYLONG7708/update/releases/download/apk-cloud/tw-com-ainvest-outpack-228.apk",
+      "sha256": "82645422ffad90d0dd331be93afddc5f0428144c60a4855331f8b6e81a9ce233",
+      "imageUrl": "assets/update-apps/tw-com-ainvest-outpack-228.png",
+      "iconUrl": "assets/update-icons/tw-com-ainvest-outpack-228-icon.png",
+      "galleryImages": [
+        "assets/update-gallery/tw-com-ainvest-outpack-228-photo-1.png",
+        "assets/update-gallery/tw-com-ainvest-outpack-228-photo-2.png"
+      ],
+      "description": "神盾測速照相 APK，提供測速照相與道路提醒用途，適合車機導航與道路安全功能測試。",
+      "changelog": [
+        "已加入申悅車機更新中心",
+        "可在車機內下載安裝",
+        "介紹與版本資訊可長按複製"
+      ]
+    },
+    {
+      "id": "app-revanced-android-gms-250932004",
+      "name": "microG Services",
+      "packageName": "app.revanced.android.gms",
+      "versionCode": 250932004,
+      "versionName": "0.3.13.2.250932",
+      "minAndroid": "依 APK 設定",
+      "targetSdk": "29",
+      "sizeLabel": "100.7 MB",
+      "apkUrl": "https://github.com/SYLONG7708/update/releases/download/apk-cloud/app-revanced-android-gms-250932004.apk",
+      "sha256": "62119f040d629a9cd3225f280649a464936730c6466cafb5b9dd5ded14269a65",
+      "imageUrl": "assets/update-apps/app-revanced-android-gms-250932004.png",
+      "iconUrl": "assets/update-icons/app-revanced-android-gms-250932004-icon.png",
+      "galleryImages": [
+        "assets/update-gallery/app-revanced-android-gms-250932004-photo-1.png",
+        "assets/update-gallery/app-revanced-android-gms-250932004-photo-2.jpg"
+      ],
+      "description": "microG Services APK，提供部分修改版影音 App 所需的 Google 登入與背景服務相容支援。",
+      "changelog": [
+        "已加入申悅車機更新中心",
+        "可在車機內下載安裝",
+        "介紹與版本資訊可長按複製"
+      ]
+    },
+    {
+      "id": "app-morphe-android-youtube-1558230464",
+      "name": "YouTube Morphe",
+      "packageName": "app.morphe.android.youtube",
+      "versionCode": 1558230464,
+      "versionName": "20.47.62",
+      "minAndroid": "依 APK 設定",
+      "targetSdk": "36",
+      "sizeLabel": "171.7 MB",
+      "apkUrl": "https://github.com/SYLONG7708/update/releases/download/apk-cloud/app-morphe-android-youtube-1558230464.apk",
+      "sha256": "e2b489d45dfe02d055da7656dcd44d4c4c91802e4a168d6e35312428f024e792",
+      "imageUrl": "assets/update-apps/app-morphe-android-youtube-1558230464.png",
+      "iconUrl": "assets/update-icons/app-morphe-android-youtube-1558230464-icon.png",
+      "galleryImages": [
+        "assets/update-gallery/app-morphe-android-youtube-1558230464-photo-1.png",
+        "assets/update-gallery/app-morphe-android-youtube-1558230464-photo-2.jpg"
+      ],
+      "description": "YouTube Morphe APK，提供 YouTube 影音播放用途，請依你的測試需求確認版本與車機相容性。",
+      "changelog": [
+        "已加入申悅車機更新中心",
+        "可在車機內下載安裝",
+        "介紹與版本資訊可長按複製"
+      ]
+    }
+  ]
 }
