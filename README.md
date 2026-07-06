@@ -37,6 +37,25 @@ powershell -ExecutionPolicy Bypass -File .\tools\start-update-uploader.ps1
 
 GitHub token 只留在執行工具的電腦端，不寫入公開網頁。
 
+## 開機自動啟動
+
+已提供 Windows 工作排程安裝腳本：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\install-update-uploader-autostart.ps1
+```
+
+安裝後會建立 `ShenYueUpdateUploaderAutoStart` 排程，Windows 登入後約 30 秒自動啟動一鍵上傳工具，無需再手動輸入指令。
+
+每次啟動後會更新：
+
+- 桌面捷徑：`ShenYue Update Uploader.url`
+- 桌面網址檔：`ShenYue Update Uploader URL.txt`
+- 本機記錄：`output/uploader/latest-upload-url.txt`
+- 本機 JSON：`output/uploader/latest-upload-url.json`
+
+Cloudflare quick tunnel 網址重開機後可能會改變，以上檔案會自動寫入最新可用網址。
+
 ## 大檔提醒
 
 目前包內有部分 APK 超過 100 MB。這些大檔不一定能直接放進 GitHub repository；如果上傳失敗，請把 APK 放到 GitHub Release 或其他雲端，然後改 `updates.json` 的 `apkUrl`。
