@@ -1,7 +1,6 @@
 import { createHash, randomBytes } from "node:crypto";
 import { createReadStream, createWriteStream, existsSync, mkdirSync, readFileSync, writeFileSync, copyFileSync, statSync } from "node:fs";
 import { basename, dirname, extname, join, resolve } from "node:path";
-import { tmpdir } from "node:os";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import http from "node:http";
@@ -15,7 +14,7 @@ const RELEASE_TAG = process.env.RELEASE_TAG || "apk-cloud";
 const APPS_SCRIPT_ENDPOINT = process.env.APPS_SCRIPT_ENDPOINT || "https://script.google.com/macros/s/AKfycbwrUCUeksZrWOUSDrdKgUGTS1JIPRX3c18PIKgZu_j64jBZGXjI7rnHTFjmIqUljZFzeg/exec";
 const UPLOAD_TOKEN = process.env.SHENYUE_UPLOAD_KEY || randomBytes(12).toString("hex");
 const MAX_UPLOAD_BYTES = Number(process.env.MAX_UPLOAD_BYTES || 1024 * 1024 * 1024);
-const TEMP_ROOT = join(tmpdir(), "shen-yue-update-uploader");
+const TEMP_ROOT = resolve(process.env.SHENYUE_UPLOAD_TEMP || join(UPDATE_REPO_PATH, "output", "uploader-temp"));
 let uploadBusy = false;
 
 mkdirSync(TEMP_ROOT, { recursive: true });
@@ -345,6 +344,7 @@ function copyAssistantManifest(manifest) {
 }
 
 async function saveIncomingFile(req, originalName) {
+  mkdirSync(TEMP_ROOT, { recursive: true });
   const name = safeAssetName(originalName || `upload-${Date.now()}.apk`);
   const path = join(TEMP_ROOT, `${Date.now()}-${name}`);
   let bytes = 0;
@@ -366,10 +366,17 @@ async function saveIncomingFile(req, originalName) {
   if (!/\.apk$/i.test(path)) {
     throw new Error("只接受 APK 檔案。");
   }
+  if (!existsSync(path)) {
+    throw new Error(`APK 暫存失敗，找不到已接收檔案：${path}`);
+  }
+  if (bytes <= 0) {
+    throw new Error("APK 暫存失敗，收到的檔案大小為 0。");
+  }
   return path;
 }
 
 async function processUpload(tempPath, query) {
+  mkdirSync(TEMP_ROOT, { recursive: true });
   refreshRepo(UPDATE_REPO_PATH, GITHUB_REPO);
   if (existsSync(join(ASSISTANT_REPO_PATH, ".git"))) {
     refreshRepo(ASSISTANT_REPO_PATH, ASSISTANT_REPO);
@@ -498,6 +505,7 @@ async function handleRequest(req, res) {
 
     json(res, 404, { ok: false, message: "找不到 API。" });
   } catch (error) {
+    console.error(`[${new Date().toISOString()}] upload request failed`, error);
     const statusCode = error.statusCode || 500;
     json(res, statusCode, {
       ok: false,
