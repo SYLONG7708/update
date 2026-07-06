@@ -20,7 +20,7 @@ https://raw.githubusercontent.com/SYLONG7708/update/main/updates.json
 
 只要修改 `updates.json` 的 `name`、`description`、`iconUrl`、`imageUrl`、`apkUrl`、`sha256` 後重新上傳，車機端按「重新整理」即可看到變更，不必重新安裝更新中心 APK。
 
-## 公開頁一鍵替換 APK
+## 公開頁一鍵新增或替換 APK
 
 已新增後端工具：
 
@@ -28,12 +28,15 @@ https://raw.githubusercontent.com/SYLONG7708/update/main/updates.json
 powershell -ExecutionPolicy Bypass -File .\tools\start-update-uploader.ps1
 ```
 
-工具會啟動本機 uploader，透過 Cloudflare Tunnel 產生公開網址。把網址給上傳者後，對方只要選 APK，就會自動：
+工具會啟動本機 uploader，透過 Cloudflare Tunnel 產生公開網址。把網址給上傳者後，對方可選擇「替換既有 APK」或「新增新的 APK」。選 APK 後會自動：
 
+- 新增全新的更新中心 App 項目，或替換既有項目的 APK。
 - 替換 `apk-cloud` GitHub Release 裡同名或同套件 APK。
 - 更新本 repo 的 `updates.json`。
 - 同步 `shen-yue-iphone-assistant` 的備援 `updates.json`。
 - 呼叫 Apps Script `replace-update-manifest`，讓車機更新中心立即讀到新版資料。
+
+新增模式可填 App 顯示名稱、分類、介紹、圖標網址、詳情圖片網址與更新說明；未填欄位會由 APK 內部資訊與預設圖片補齊。
 
 GitHub token 只留在執行工具的電腦端，不寫入公開網頁。
 

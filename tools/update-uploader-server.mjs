@@ -110,6 +110,31 @@ function safeAssetName(value) {
   return /\.apk$/i.test(name) ? name : `${name}.apk`;
 }
 
+function cleanText(value, maxLength = 500) {
+  const text = String(value || "").replace(/\s+/g, " ").trim();
+  return maxLength > 0 ? text.slice(0, maxLength) : text;
+}
+
+function cleanUrl(value) {
+  const text = String(value || "").trim();
+  if (!text) return "";
+  if (/^(https?:\/\/|assets\/)/i.test(text)) return text;
+  return "";
+}
+
+function parseChangelog(value) {
+  const lines = String(value || "")
+    .split(/\r?\n|[|]{2}/)
+    .map((line) => cleanText(line, 160))
+    .filter(Boolean);
+  return lines.slice(0, 8);
+}
+
+function isCreateMode(query) {
+  const mode = String(query.mode || query.action || "").trim().toLowerCase();
+  return mode === "create" || mode === "new" || query.create === "1";
+}
+
 function getAssetNameFromUrl(value) {
   const clean = String(value || "").split("?")[0].split("#")[0];
   const raw = clean.split("/").filter(Boolean).pop() || "";
@@ -184,6 +209,7 @@ function hashFile(path) {
 }
 
 function findManifestItem(manifest, query, metadata) {
+  if (isCreateMode(query)) return null;
   const itemId = String(query.itemId || "").trim();
   const assetName = safeAssetName(query.assetName || "");
   const packageName = metadata.packageName || "";
@@ -197,16 +223,31 @@ function findManifestItem(manifest, query, metadata) {
   }) || null;
 }
 
-function buildUpdatedItem(existing, metadata, assetName, fileStat, sha256) {
+function buildUpdatedItem(existing, metadata, assetName, fileStat, sha256, query = {}) {
   const apkUrl = `https://github.com/${GITHUB_REPO}/releases/download/${RELEASE_TAG}/${encodeURIComponent(assetName)}`;
   const versionCode = metadata.versionCode || Number(existing?.versionCode || 0);
   const versionName = metadata.versionName || existing?.versionName || "未標示";
   const packageName = metadata.packageName || existing?.packageName || "";
-  const appName = existing?.name || metadata.label || assetName.replace(/\.apk$/i, "");
+  const appName = cleanText(query.appName || query.name, 90) || existing?.name || metadata.label || assetName.replace(/\.apk$/i, "");
+  const category = cleanText(query.category, 60) || existing?.category || "其他應用";
+  const description = cleanText(query.description, 900) || existing?.description || (existing ? "由申悅更新中心一鍵上傳工具替換 APK。" : "由申悅更新中心一鍵上傳工具新增。");
+  const iconUrl = cleanUrl(query.iconUrl) || existing?.iconUrl || "assets/app-logo.png";
+  const imageUrl = cleanUrl(query.imageUrl) || existing?.imageUrl || existing?.galleryImages?.[0] || "assets/update-splash.png";
+  const galleryImages = Array.isArray(existing?.galleryImages) ? existing.galleryImages : [];
+  if (cleanUrl(query.imageUrl) && !galleryImages.includes(cleanUrl(query.imageUrl))) {
+    galleryImages.unshift(cleanUrl(query.imageUrl));
+  }
+  const customChangelog = parseChangelog(query.changelog);
+  const defaultAction = existing ? "替換 APK" : "新增 APK";
+  const changelog = customChangelog.length ? customChangelog : [
+    `已於 ${taipeiTimestamp()} 由公開上傳頁${defaultAction}`,
+    `版本：${versionName} (${versionCode || "未標示"})`,
+    "可在車機內下載安裝"
+  ];
   return {
     id: existing?.id || slug(`${packageName || appName}-${versionCode || Date.now()}`),
     name: appName,
-    category: existing?.category || "其他應用",
+    category,
     packageName,
     versionCode,
     versionName,
@@ -215,15 +256,11 @@ function buildUpdatedItem(existing, metadata, assetName, fileStat, sha256) {
     sizeLabel: formatSize(fileStat.size),
     apkUrl,
     sha256,
-    imageUrl: existing?.imageUrl || existing?.galleryImages?.[0] || "assets/update-splash.png",
-    iconUrl: existing?.iconUrl || "assets/app-logo.png",
-    galleryImages: Array.isArray(existing?.galleryImages) ? existing.galleryImages : [],
-    description: existing?.description || "由申悅更新中心一鍵上傳工具新增。",
-    changelog: [
-      `已於 ${taipeiTimestamp()} 由公開上傳頁替換 APK`,
-      `版本：${versionName} (${versionCode || "未標示"})`,
-      "可在車機內下載安裝"
-    ]
+    imageUrl,
+    iconUrl,
+    galleryImages,
+    description,
+    changelog
   };
 }
 
@@ -241,7 +278,7 @@ function updateManifestItem(manifest, item) {
   manifest.schema = 1;
   manifest.channel = manifest.channel || "stable";
   manifest.updatedAt = taipeiTimestamp();
-  return manifest;
+  return index >= 0 ? "replace" : "create";
 }
 
 function refreshRepo(repoPath, remoteRepo) {
@@ -349,7 +386,7 @@ async function processUpload(tempPath, query) {
 
   const fileStat = statSync(uploadPath);
   const sha256 = await hashFile(uploadPath);
-  const item = buildUpdatedItem(existing, metadata, assetName, fileStat, sha256);
+  const item = buildUpdatedItem(existing, metadata, assetName, fileStat, sha256, query);
 
   const releaseView = tryRun("gh", ["release", "view", RELEASE_TAG, "--repo", GITHUB_REPO], UPDATE_REPO_PATH);
   if (!releaseView.ok) {
@@ -357,15 +394,16 @@ async function processUpload(tempPath, query) {
   }
   run("gh", ["release", "upload", RELEASE_TAG, uploadPath, "--repo", GITHUB_REPO, "--clobber"], UPDATE_REPO_PATH);
 
-  updateManifestItem(manifest, item);
+  const operation = updateManifestItem(manifest, item);
   writeManifest(UPDATE_REPO_PATH, manifest);
-  const updateGit = gitSyncRepo(UPDATE_REPO_PATH, GITHUB_REPO, `Update ${item.name} APK asset`);
+  const updateGit = gitSyncRepo(UPDATE_REPO_PATH, GITHUB_REPO, `${operation === "create" ? "Add" : "Update"} ${item.name} APK asset`);
   const assistantGit = copyAssistantManifest(manifest);
   const appsScript = await syncAppsScript(manifest);
 
   return {
     ok: true,
-    message: "APK 已替換並同步更新中心",
+    operation,
+    message: operation === "create" ? "APK 已新增並同步更新中心" : "APK 已替換並同步更新中心",
     item,
     assetName,
     sha256,
@@ -425,6 +463,11 @@ async function handleRequest(req, res) {
       const manifest = readManifest(UPDATE_REPO_PATH);
       json(res, 200, {
         ok: true,
+        features: {
+          createApk: true,
+          replaceApk: true,
+          metadataFields: ["appName", "category", "description", "iconUrl", "imageUrl", "changelog"]
+        },
         githubRepo: GITHUB_REPO,
         releaseTag: RELEASE_TAG,
         appsScriptEndpoint: APPS_SCRIPT_ENDPOINT,
