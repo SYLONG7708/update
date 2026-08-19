@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "channel": "stable",
-  "updatedAt": "2026-08-19T20:28:30+08:00",
+  "updatedAt": "2026-08-19T20:33:05+08:00",
   "apps": [
     {
       "id": "tw.com.sylong.tvcar-7",
@@ -221,7 +221,7 @@
     },
     {
       "id": "app-morphe-android-youtube-1558230464",
-      "name": "YouTube Morphe",
+      "name": "無廣告2Youtube Morphe",
       "category": "其他應用",
       "packageName": "app.morphe.android.youtube",
       "versionCode": 1561186611,
@@ -239,7 +239,7 @@
       ],
       "description": "YouTube Morphe APK，提供 YouTube 影音播放用途，請依你的測試需求確認版本與車機相容性。",
       "changelog": [
-        "已於 2026-08-19T18:49:29+08:00 由永久雲端上傳頁替換 APK",
+        "已於 2026-08-19T20:33:04+08:00 由永久雲端上傳頁替換 APK",
         "版本：21.29.366-SECONDARY (1561186611)",
         "可在車機內下載安裝"
       ]
