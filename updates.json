@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "channel": "stable",
-  "updatedAt": "2026-08-19T18:43:51+08:00",
+  "updatedAt": "2026-08-19T18:45:38+08:00",
   "apps": [
     {
       "id": "tw.com.sylong.tvcar-7",
@@ -197,14 +197,15 @@
     {
       "id": "app-revanced-android-gms-250932004",
       "name": "microG Services",
+      "category": "其他應用",
       "packageName": "app.revanced.android.gms",
-      "versionCode": 250932004,
-      "versionName": "0.3.13.2.250932",
-      "minAndroid": "依 APK 設定",
+      "versionCode": 255034004,
+      "versionName": "6.1.4",
+      "minAndroid": "Android SDK 24",
       "targetSdk": "29",
-      "sizeLabel": "100.7 MB",
+      "sizeLabel": "12.8 MB",
       "apkUrl": "https://github.com/SYLONG7708/update/releases/download/apk-cloud/app-revanced-android-gms-250932004.apk",
-      "sha256": "62119f040d629a9cd3225f280649a464936730c6466cafb5b9dd5ded14269a65",
+      "sha256": "907b0f1d64d4bdf2fc15df596129cdf9f140f5360f557d24ff2e987c9f586f15",
       "imageUrl": "assets/update-apps/app-revanced-android-gms-250932004.png",
       "iconUrl": "assets/update-icons/app-revanced-android-gms-250932004-icon.png",
       "galleryImages": [
@@ -213,9 +214,9 @@
       ],
       "description": "microG Services APK，提供部分修改版影音 App 所需的 Google 登入與背景服務相容支援。",
       "changelog": [
-        "已加入申悅車機更新中心",
-        "可在車機內下載安裝",
-        "介紹與版本資訊可長按複製"
+        "已於 2026-08-19T18:45:38+08:00 由永久雲端上傳頁替換 APK",
+        "版本：6.1.4 (255034004)",
+        "可在車機內下載安裝"
       ]
     },
     {
