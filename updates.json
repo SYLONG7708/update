@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "channel": "stable",
-  "updatedAt": "2026-08-19T18:49:30+08:00",
+  "updatedAt": "2026-08-19T19:31:57+08:00",
   "apps": [
     {
       "id": "tw.com.sylong.tvcar-7",
@@ -20,7 +20,7 @@
       "galleryImages": [],
       "description": "影視播放 APK，提供車機影音播放使用。",
       "changelog": [
-        "已於 2026-08-19T18:43:51+08:00 由永久雲端上傳頁替換 APK",
+        "已於 2026-08-19T19:31:57+08:00 由永久雲端上傳頁替換 APK",
         "版本：1.4.7-cloud-license (17)",
         "可在車機內下載安裝"
       ]
